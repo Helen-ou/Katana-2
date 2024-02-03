@@ -7,6 +7,7 @@ typedef struct {
 	char nom[25];
     int classe; // 0 = shogun, 1 = samuraï, 2 = ninja, 3 = ronin
     int cartes[25]; // Stockes les cartes d'un joueur selon son id
+    Personnage* personnage;
     int armes[25];
     int points; // self-explanatory
     int fin; // fin de partie si honneur = 0 
