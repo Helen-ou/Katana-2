@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+void test() {
+    printf("c'est un test");
+}
+
 int main() {
     int tableau[5] = {5};
     printf("%d", sizeof(tableau));

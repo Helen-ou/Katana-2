@@ -1,4 +1,4 @@
-// Ce fichier initialisera les classes
+// Ce fichier lancera le jeu
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
