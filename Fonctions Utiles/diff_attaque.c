@@ -1,3 +1,6 @@
+// Fonction Attaque
+#include <stdio.h>
+
 int diff_attaque(int joueur_a, int joueur_b)
 { // j_a e j_b prennent e parametre le numero du joueur
     int temp = 0;
