@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "Fonctions/fin.c"
 #include "Fonctions/points.c"
+#include "Fonctions/fin.c"
 
 int check_honneur(Joueurs *joueurs, int nombre_joueurs)
 {

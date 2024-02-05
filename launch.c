@@ -13,7 +13,7 @@
 #include "Fonctions/attribuerPersonnage.c"
 #include "Données/personnages.c"
 
-int main()
+void lancement()
 
 {
     srand(time(NULL));
@@ -35,7 +35,4 @@ int main()
     // Demande et attribue les noms et classes aux joueurs
     assignerNomEtClasse(joueurs, nombre_joueurs, classes);
     attribuerPersonnage(joueurs, nombre_joueurs, cartes_personnage, nom_cartes_personnages);
-    free(joueurs);
-    free(pos);
-    return 0;
 }
