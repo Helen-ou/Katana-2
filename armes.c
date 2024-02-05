@@ -1,11 +1,5 @@
 #include <stdio.h>
-
-typedef struct {
-    int id;
-    char nom[20];
-    int portee;
-    int degats;
-} Arme;
+#include "libraries.h"
 
 int main() {
     // 13 pour 13 armes

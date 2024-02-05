@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include "libraries.h"
-#include <time.h>  
+#include <time.h>
 
- typedef struct {
-    Card hand[5]; 
-} Player;
-
-void PhasePioche(Joueurs *joueur) {
+void PhasePioche(Joueurs *joueur)
+{
         int randomIndex = rand() % (sizeof(cardAttributes) / sizeof(cardAttributes[0]));
         player->hand[i].id = cardAttributes[randomIndex][0];
         player->hand[i].att = cardAttributes[randomIndex][1];
