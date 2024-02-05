@@ -28,17 +28,17 @@ void printArray(int array[], int size) {
 }
 
 // Fonction à exécuter
-void point_calcul(Joueurs *joueurs, nb_joueurs)
+void point_calcul(Joueurs *joueurs, int nb_joueurs)
 {
     int i;
     int tableau_p[nb_joueurs]; // tableau points
 
     for (i; i < nb_joueurs; i++)
     { // On met les points dans un tableau
-        tableau[i] = joueurs[i].points;
+        tableau_p[i] = joueurs[i].points;
     }
 
-    taille = sizeof(tableau_p) / sizeof(tableau_p[0]);
+    int taille = sizeof(tableau_p) / sizeof(tableau_p[0]);
     selectionSort(tableau_p, taille);
     printf("Les résultats des points de la partie sont : \n");
     printArray(tableau_p, taille);

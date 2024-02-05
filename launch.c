@@ -4,12 +4,14 @@
 #include <string.h>
 #include <time.h>
 
-#include "libraries.h" // les structures
-#include "nb_joueurs.c"
-#include "tableaux.c"
-#include "positions.c"
-#include "assignation_noms.c"
+#include "Données/libraries.h" // les structures
+#include "Fonctions/nb_joueurs.c"
+#include "Données/tableaux.c"
+#include "Fonctions/positions.c"
+#include "Fonctions/assignation_noms.c"
 #include "routine.c"
+#include "Fonctions/attribuerPersonnage.c"
+#include "Données/personnages.c"
 
 int main()
 
@@ -32,7 +34,7 @@ int main()
     
     // Demande et attribue les noms et classes aux joueurs
     assignerNomEtClasse(joueurs, nombre_joueurs, classes);
-    routine(joueurs);
+    attribuerPersonnage(joueurs, nombre_joueurs, cartes_personnage, nom_cartes_personnages);
     free(joueurs);
     free(pos);
     return 0;

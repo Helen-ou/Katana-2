@@ -3,9 +3,9 @@
 #include <stdbool.h>
 
 // Exemple pour les cartes, pas définitif
-// id, att, def
+// ID, ATK, DEF
 int carte[][3] = {{0, 2, 3}, {1, 1, 4}};
-// noms
+// Noms des cartes
 char cartes[][25] = {"Farfouilleur", "Croisé"};
 
 // Exemple pour les classes, définitif

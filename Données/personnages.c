@@ -1,32 +1,21 @@
 // Initialise les cartes personnage
 #include <stdio.h>
 
-typedef struct
-{
-    int id;
-    char nom[20];
-    int PDV;
-} Personnage;
+// Définition des cartes personnage avec un tableau
 
-Personnage *personnages = malloc(12 * sizeof(Personnage));
-int i;
+// ID, Valeur Point de Vie (PDV)
+int cartes_personnage[12][2] = {
+    {0, 4},
+    {1, 4},
+    {2, 4},
+    {3, 4},
+    {4, 4},
+    {5, 5},
+    {6, 5},
+    {7, 5},
+    {8, 5},
+    {9, 5},
+    {10, 5},
+    {11, 5}};
 
-for (i; i < 12; i++)
-{
-    personnages[i] = cartes_personnage[i];
-}
-
-cartes_personnage = {
-    {0, "Hanzo", 4},
-    {1, "Ushiwaka", 4},
-    {2, "Chiyome", 4},
-    {3, "Hideyoshi", 4},
-    {4, "Ginchiyo", 4},
-    {5, "Goemon", 5},
-    {6, "Nobugana", 5},
-    {7, "Tomoe", 5},
-    {8, "Ieyasu", 5},
-    {9, "Benkai", 5},
-    {10, "Musashi", 5},
-    {11, "Kojiro", 5}
-}
+char nom_cartes_personnages[12][25] = {"Hanzo", "Ushiwaka", "Chiyome", "Hideyoshi", "Ginchiyo", "Goemon", "Nobunaga", "Tomoe", "Ieyasu", "Benkai", "Musashi", "Kojiro"};

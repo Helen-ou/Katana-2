@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "libraries.h"
-#include "fin.c"
+#include "Fonctions/fin.c"
+#include "Fonctions/points.c"
 
-int check_honneur(Joueurs *joueurs, nombre_joueurs)
+int check_honneur(Joueurs *joueurs, int nombre_joueurs)
 {
     int i;
-    int fin; // condition de fin dans routine
-    int n;   // nombre de mort
+    int fin; // Condition de fin dans routine
+    int n;   // Nombre de mort
     for (i; i < nombre_joueurs; i++)
     {
         if (joueurs[i].honneur <= 0)
@@ -21,10 +21,10 @@ int check_honneur(Joueurs *joueurs, nombre_joueurs)
     return fin;
 }
 
-void check_pv_fin(Joueurs *joueurs, nombre_joueurs)
+int check_pv_fin(Joueurs *joueurs, int nombre_joueurs)
 {
     int i;
-    int fin; // condition de fin dans routine
+    int fin; // Condition de fin dans routine
     int n;
     for (i; i < nombre_joueurs; i++)
     {
@@ -40,14 +40,16 @@ void check_pv_fin(Joueurs *joueurs, nombre_joueurs)
     return fin;
 }
 
-int routine(Joueurs *joueurs, nombre_joueurs)
+int routine(Joueurs *joueurs, int nombre_joueurs)
 {
     int fin;
     check_honneur(joueurs, nombre_joueurs);
     check_pv_fin(joueurs, nombre_joueurs);
     if (fin == 1)
     {
-        fin_jeu(joueurs, nombre_joueurs) return 1; // Si fonction routine renvoie 1, break boucle jeu dans launch.c
+        printf("La fin du jeu approche, comptons les points ! ");
+        point_calcul(joueurs, nombre_joueurs);
+        return 1; // Si fonction routine renvoie 1, break boucle jeu dans launch.c
     }
     else
     {
