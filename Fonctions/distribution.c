@@ -5,13 +5,13 @@
 void distribution(Joueurs *joueurs, int id_joueur, int nombre_cartes)
 {   
     printf("boop\n");
-    for (int k; k < nombre_cartes; k++)
+    for (int k = 0; k < nombre_cartes; k++)
     {
         // Créé tableau avec les poids
         int deck_weighted[200]; // 200 éléments choisi arbitrairement
-        for (int i; i < (sizeof(deck) / sizeof(deck[0])); i++)
+        for (int i = 0; i < (sizeof(deck) / sizeof(deck[0])); i++)
         {
-            for (int j; j < deck[i][1]; j++)
+            for (int j = 0; j < deck[i][1]; j++)
             {
                 deck_weighted[sizeof(deck_weighted) / sizeof(deck_weighted[0] - 1)] = deck[i][0];
             }

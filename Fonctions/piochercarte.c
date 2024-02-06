@@ -8,7 +8,7 @@ void pioche_tour1(Joueurs *joueurs, int nombre_joueurs)
 {
     int joueur_x = 5; // Compte le joueur pour la distribution, permet d'éviter le shogun qui fait +0
     int add_1;
-    for (int i; i < nombre_joueurs; i++)
+    for (int i = 0; i < nombre_joueurs; i++)
     {
         if (joueurs[i].classe == 0)
         {
