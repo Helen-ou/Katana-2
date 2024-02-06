@@ -26,6 +26,7 @@ void attribuerPersonnage(Joueurs *joueurs, int nb_joueurs, int cartes_personnage
         // Génération d'un index aléatoire pour choisir un personnage
         // Attribution du personnage au joueur
         strcpy(joueurs[i].personnage, nom_cartes_personnages[index_personnage]);
+        joueurs[i].index_perso = index_personnage;
         joueurs[i].vies = cartes_personnage[index_personnage][1];
         printf("Joueur %d - Personnage : %s, PDV : %d\n", i + 1, joueurs[i].personnage, joueurs[i].vies);
 

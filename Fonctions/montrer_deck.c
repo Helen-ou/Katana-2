@@ -1,0 +1,1 @@
+// coder une fonction "void montrer_deck() qui print le deck du joueur"

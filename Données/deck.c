@@ -7,40 +7,9 @@
 // Définition de la taille du deck
 #define DECK_SIZE 60
 
-void createDeck(Carte *deck) {
-    // Initialisation du générateur de nombres aléatoires
-    srand(time(NULL));
 
+void createDeck(Carte *deck) {
     // Création du deck
-    deck[DECK_SIZE] = {
-        // Armes
-        {0, "Nodachi", 3, 3}, {1, "Nagayari", 4, 2}, {2, "Tanegashima", 5, 1},
-        {3, "Daikyu", 5, 3}, {4, "Katana", 2, 3}, {5, "Kanabo", 3, 2},
-        {6, "Wakizashi", 1, 3}, {7, "Naginata", 4, 1}, {8, "Bo", 1, 4},
-        {9, "Kusarigama", 2, 2}, {10, "Kusarigama", 2, 2}, {11, "Kusarigama", 2, 2},
-        {12, "Shuriken", 2, 1}, {13, "Bokken", 1, 1}, {14, "Bokken", 1, 1},
-        {15, "Bokken", 1, 1}, {16, "Bokken", 1, 1}, {17, "Bokken", 1, 1},
-        {18, "Kiseru", 1, 2}, {19, "Kiseru", 1, 2}, {20, "Kiseru", 1, 2},
-        {21, "Kiseru", 1, 2}, {22, "Kiseru", 1, 2},
-        // Cartes
-        {23, "Cri de Guerre", false}, {24, "Daimyo", false}, {25, "Diversion", false},
-        {26, "Geisha", false}, {27, "Méditation", false},
-        {28, "Parade", false}, {29, "Parade", false}, {30, "Parade", false},
-        {31, "Parade", false}, {32, "Parade", false}, {33, "Parade", false},
-        {34, "Parade", false}, {35, "Parade", false}, {36, "Parade", false},
-        {37, "Parade", false}, {38, "Parade", false}, {39, "Parade", false},
-        {40, "Parade", false}, {41, "Parade", false}, {42, "Parade", false},
-        {43, "Parade", false}, {44, "Parade", false}, {45, "Parade", false},
-        {46, "Parade", false}, {47, "Parade", false}, {48, "Cérémonie du thé", false},
-        {49, "Cérémonie du thé", false}, {50, "Cérémonie du thé", false},
-        {51, "Cérémonie du thé", false}, {52, "Ju jitsu", false},
-        {53, "Ju jitsu", false}, {54, "Ju jitsu", false},
-        // Cartes permanentes
-        {55, "Attaque Rapide", true}, {56, "Attaque Rapide", true},
-        {57, "Attaque Rapide", true}, {58, "Attaque Rapide", true},
-        {59, "Code du Bushido", true}, {60, "Code du Bushido", true},
-        {61, "Armure", true}, {62, "Armure", true}, {63, "Armure", true},
-        {64, "Armure", true}, {65, "Concentration", true}, {66, "Concentration", true},
-        {67, "Concentration", true}, {68, "Concentration", true},
-    };
-}
+    // id, quantité, porté, dégats, permanente ? 
+    int deck[60][5] = {{0, 1, 3, 3, false}, {1, 1, 4, 2, false}},  {2, 1, 5, 1, false}}, {3, 1, 5, 3, false}, {4, 1, 2, 3, false}, {5, 1, 3, 2, false},  {6, 1, 1, 3, false},  {7, 1, 4, 1, false},  {8, 1, 1, 4, false},  {9, 3, 2, 2, false}}, {10, 1, 2, 1, false}, {11, 5, 1, 1, false}, {12, 5, 1, 2, false}, {13, 1, -1, -1, false},  {14, 1, -1, -1, false}, {15, 1, -1, -1, false}, {16, 1, -1, -1, false}, {17, 1, -1, -1, false}, {18, 20, -1, -1, false}, {19, 4, -1, -1, false}, {20, 3, -1, -1, false},  {21, 4, -1, -1, true}, {22, 2, -1, -1, true}, {23, 4, -1, -1, true},  {24, 4, -1, -1, true};
+    char deck_noms[60][50] = {"Nodachi", "Nagayari", "Tanegashima", "Daikyu", "Katana", "Kanabo", "Wakizashi", "Naginata", "Bo", "Kusarigama", "Shuriken", "Bokken", "Kiseru", "Cri de Guerre", "Daimyo", "Diversion", "Geisha", "Méditation", "Parade", "Cérémonie du thé", "Jujitsu", "AttaqueRapide", "CodeDuBushido", "Armure", "Concentration"};

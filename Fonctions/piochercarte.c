@@ -2,34 +2,25 @@
 #include <stdlib.h>
 #include <string.h>
 
-Carte drawCard(Deck *deck)
+void pioche_tour1(Joueurs *joueurs, int nombre_joueurs)
 {
-    // Vérifie si le deck n'est pas vide
-    if (deck->taille > 0)
+    int joueur_x = 5; // Compte le joueur pour la distribution, permet d'éviter le shogun qui fait +0
+    int add_1;
+    for (int i; i < nombre_joueurs; i++)
     {
-        // Pioche la première carte du deck
-        Carte cartePiochee = deck->cartes[0];
-
-        // Décale les cartes restantes dans le deck
-        for (int i = 1; i < deck->taille; i++)
+        if (joueurs[i].classe == 0)
         {
-            deck->cartes[i - 1] = deck->cartes[i];
+            // Fonction distribution(4)
         }
-
-        // Réduit la taille du deck
-        deck->taille--;
-
-        printf("Une carte a été piochée.\n");
-        
-        return cartePiochee;
+        else
+        {
+            // fonction distribution(joueur_x)
+            if (add_1 % 2 == 0)
+            {
+                joueur_x++;
+                
+            }
+            add_1++;
+        }
     }
-    else
-    {
-        // Si le deck est vide, retourne une carte avec un ID -1
-        Carte carteVide = {-1, "", false};
-        return carteVide;
-    }
-
-
 }
-

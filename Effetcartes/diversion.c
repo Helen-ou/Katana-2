@@ -1,0 +1,5 @@
+void Diversion(Joueurs *joueur); {
+
+
+
+ }
