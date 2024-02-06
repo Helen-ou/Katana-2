@@ -12,6 +12,8 @@
 #include "routine.c"
 #include "Fonctions/attribuerPersonnage.c"
 #include "Données/personnages.c"
+#include "Fonctions/piochercarte.c"
+
 
 Joueurs* lancement(int* nombre_joueurs) {
     srand(time(NULL));
@@ -35,6 +37,7 @@ Joueurs* lancement(int* nombre_joueurs) {
     attribuerPersonnage(joueurs, *nombre_joueurs, cartes_personnage, nom_cartes_personnages);
 
     printf("Nous allons pouvoir commencer la distribution des cartes !");
-    
+    pioche_tour1(joueurs, *nombre_joueurs);
+    printf("\n%d", joueurs[2].cartes[0]);
     return joueurs;
 }

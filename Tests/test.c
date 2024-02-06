@@ -5,11 +5,8 @@ void test() {
 }
 
 int main() {
-    int tableau[5] = {5};
-    printf("%d", sizeof(tableau));
-    tableau[1] = 3;
-    printf("  %d", sizeof(tableau));
-    printf("%d", tableau[3]);
-    return 0;
-
+    int arr[5];
+    arr[sizeof(arr) / sizeof(arr[0] - 1)] = 1;
+    printf("%d", arr[1]);
+return 0;
 }
