@@ -20,6 +20,7 @@ bool verif_deck_perma(Joueurs *joueurs, int k)
             }
         }
     }
+    return avoir_carte_perma;
 }
 
 bool verif_deck_act(Joueurs *joueurs, int k)
@@ -38,6 +39,7 @@ bool verif_deck_act(Joueurs *joueurs, int k)
             }
         }
     }
+    return avoir_carte_act;
 }
 
 bool verif_deck_atta(Joueurs *joueurs, int k)
@@ -56,4 +58,5 @@ bool verif_deck_atta(Joueurs *joueurs, int k)
             }
         }
     }
+    return avoir_carte_atta;
 }
