@@ -11,32 +11,37 @@ int classes[][4] = {
     {1, 1, 1, 3}, 
     {1, 1, 1, 3}};
 
-// id, quantité, portée, attaque, ?permanente
+// ID, quantité, portée, attaque, permanente
 int deck[60][5] = {
-    {0, 1, 3, 3, false}, //Définition des armes
-    {1, 1, 4, 2, false}, 
-    {2, 1, 5, 1, false}, 
-    {3, 1, 5, 3, false}, 
-    {4, 1, 2, 3, false}, 
-    {5, 1, 3, 2, false}, 
-    {6, 1, 1, 3, false}, 
-    {7, 1, 4, 1, false}, 
-    {8, 1, 1, 4, false}, 
-    {9, 3, 2, 2, false}, 
-    {10, 1, 2, 1, false}, 
-    {11, 5, 1, 1, false}, 
-    {12, 5, 1, 2, false},
-    {13, 1, -1, -1, false}, //Définition des cartes spéciales
-    {14, 1, -1, -1, false}, 
-    {15, 1, -1, -1, false}, 
-    {16, 1, -1, -1, false}, 
-    {17, 1, -1, -1, false}, 
-    {18, 20, -1, -1, false}, 
-    {19, 4, -1, -1, false}, 
-    {20, 3, -1, -1, false}, 
-    {21, 4, -1, -1, true}, //Définition des cartes permanentes
-    {22, 2, -1, -1, true}, 
-    {23, 4, -1, -1, true}, 
-    {24, 4, -1, -1, true}};
+    // Définition des armes
+    {1, 1, 3, 3, false},    // Nodachi 
+    {2, 1, 4, 2, false},     // Nagayari
+    {3, 1, 5, 1, false},     // Tanegashima
+    {4, 1, 5, 3, false},     // Daikyu
+    {5, 1, 2, 3, false},     // Katana
+    {6, 1, 3, 2, false},     // Kanabo
+    {7, 1, 1, 3, false},     // Wakizashi
+    {8, 1, 4, 1, false},     // Naginata
+    {9, 1, 1, 4, false},     // Bo
+    {10, 3, 2, 2, false},     // Kusarigama
+    {11, 1, 2, 1, false},    // Shuriken
+    {12, 5, 1, 1, false},    // Bokken
+    {13, 5, 1, 2, false},    // Kiseru
+    // Définition des cartes spéciales
+    {14, 1, -1, -1, false},  // CriDeGuerre 
+    {15, 1, -1, -1, false},  // Daimyo
+    {16, 1, -1, -1, false},  // Diversion
+    {17, 1, -1, -1, false},  // Geisha
+    {18, 1, -1, -1, false},  // Méditation
+    {19, 20, -1, -1, false}, // Parade
+    {20, 4, -1, -1, false},  // CérémonieDuThé
+    {21, 3, -1, -1, false},  // Jujitsu
+    // Définition des cartes permanentes
+    {22, 4, -1, -1, true},   // AttaqueRapide 
+    {23, 2, -1, -1, true},   // CodeDuBushido
+    {24, 4, -1, -1, true},   // Armure
+    {25, 4, -1, -1, true}};  // Concentration 
     
-char deck_noms[60][50] = {"Nodachi", "Nagayari", "Tanegashima", "Daikyu", "Katana", "Kanabo", "Wakizashi", "Naginata", "Bo", "Kusarigama", "Shuriken", "Bokken", "Kiseru", "Cri de Guerre", "Daimyo", "Diversion", "Geisha", "Méditation", "Parade", "Cérémonie du thé", "Jujitsu", "AttaqueRapide", "CodeDuBushido", "Armure", "Concentration"};
+char deck_noms[60][50] = {"Nodachi", "Nagayari", "Tanegashima", "Daikyu", "Katana", "Kanabo", "Wakizashi", "Naginata",
+ "Bo", "Kusarigama", "Shuriken", "Bokken", "Kiseru", "CriDeGuerre", "Daimyo", "Diversion", "Geisha", "Méditation",
+  "Parade", "CérémonieDuThé", "Jujitsu", "AttaqueRapide", "CodeDuBushido", "Armure", "Concentration"};

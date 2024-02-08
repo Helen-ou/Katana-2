@@ -2,26 +2,29 @@
 #include <stdlib.h>
 #include <time.h>
 
-void distribution(Joueurs *joueurs, int id_joueur, int nombre_cartes)
-{   
-    printf("boop\n");
-    for (int k = 0; k < nombre_cartes; k++)
+void distribution(Joueurs *joueurs, int id_joueur, int deck[60][5], int nb_cartes_dist)
+{
+    for (int k = 0; k < nb_cartes_dist; k++)
     {
-        // Créé tableau avec les poids
-        int deck_weighted[200]; // 200 éléments choisi arbitrairement
-        for (int i = 0; i < (sizeof(deck) / sizeof(deck[0])); i++)
+        // Seed the random number generator
+
+        // Choose a random element index
+        int randomIndex = rand() % 60;
+
+        // Adjust the randomIndex based on the counts in the second field of each sub-array
+        int cumulativeCount = 0;
+        for (int i = 0; i < 60; i++)
         {
-            for (int j = 0; j < deck[i][1]; j++)
+            cumulativeCount += deck[i][1]; // Assuming the count is in the second field
+            if (randomIndex < cumulativeCount)
             {
-                deck_weighted[sizeof(deck_weighted) / sizeof(deck_weighted[0] - 1)] = deck[i][0];
+                randomIndex = i;
+                break;
             }
         }
 
-        // Chercher un élément aléatoire pour piocher
-        srand(time(NULL));
-        int random_item = rand() % (sizeof(deck_weighted) / sizeof(deck_weighted[0]));
-        random_item = deck_weighted[random_item];
-        printf("%d", random_item);
-        joueurs[id_joueur].cartes[sizeof(joueurs[id_joueur].cartes) / sizeof(joueurs[id_joueur].cartes[0])] = deck[random_item];
+        // Now randomIndex points to the randomly selected sub-array
+        joueurs[id_joueur].cartes[k] = deck[randomIndex][0];
+        deck[randomIndex][1] -= 1;
     }
 }
