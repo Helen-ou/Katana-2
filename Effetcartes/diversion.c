@@ -26,4 +26,5 @@ void Diversion(Joueurs *joueurs, int nombre_joueurs, int joueur) {
     printf("%s a pioché une carte de %s.\n", joueurs[joueur].nom, joueurs[joueurCible].nom);
 
     defausserCarte(&joueurs[joueurCible], joueurs[joueurCible].cartes[carteChoisie]);
+    printf("L'effet de Diversion à été éxécuté.\n");
 }

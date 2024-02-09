@@ -4,17 +4,12 @@
 #include "phase2.c"
 #include "phase3.c"
 #include "phase4.c"
-
 // Va gérer la récup de PV
-void phase_1(Joueurs *joueurs, int nb_joueurs)
+void phase_1(Joueurs *joueurs, int nb_joueurs, int joueur_actif)
 {
-    printf("Nous allons procéder à la phase de récupération ")
-    int i = 0;
-    for (i; i < nb_joueurs; i++)
+    printf("Nous allons procéder à la phase de récupération de %s\n", joueurs[joueur_actif].nom);
+    if (joueurs[joueur_actif].vies <= 0)
     {
-        if (joueurs[i].vies <= 0)
-        {
-            joueurs[i].vies = cartes_personnages[joueurs[i].index_perso][1];
-        }
+        joueurs[joueur_actif].vies = cartes_personnage[joueurs[joueur_actif].index_perso][1];
     }
 }

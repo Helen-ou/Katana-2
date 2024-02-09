@@ -12,9 +12,9 @@ int classes[][4] = {
     {1, 1, 1, 3}};
 
 // ID, quantité, portée, attaque, permanente
-int deck[60][5] = {
+int deck[25][5] = {
     // Définition des armes
-    {1, 1, 3, 3, false},    // Nodachi 
+    {1, 1, 3, 3, false},     // Nodachi 
     {2, 1, 4, 2, false},     // Nagayari
     {3, 1, 5, 1, false},     // Tanegashima
     {4, 1, 5, 3, false},     // Daikyu
@@ -23,7 +23,7 @@ int deck[60][5] = {
     {7, 1, 1, 3, false},     // Wakizashi
     {8, 1, 4, 1, false},     // Naginata
     {9, 1, 1, 4, false},     // Bo
-    {10, 3, 2, 2, false},     // Kusarigama
+    {10, 3, 2, 2, false},    // Kusarigama
     {11, 1, 2, 1, false},    // Shuriken
     {12, 5, 1, 1, false},    // Bokken
     {13, 5, 1, 2, false},    // Kiseru

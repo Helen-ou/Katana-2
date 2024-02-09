@@ -12,10 +12,12 @@ void pioche_tour1(Joueurs *joueurs, int nombre_joueurs)
     {
         if (joueurs[i].classe == 0) // Si shogun
         {
+            printf("\nJe distribue au shogun\n");
             distribution(joueurs, i, deck, 4);
         }
         else
         {
+            printf("Je distribue à %s\n", joueurs[i].nom);
             distribution(joueurs, i, deck, joueur_x);
             if (add_1 % 2 == 0)
             {

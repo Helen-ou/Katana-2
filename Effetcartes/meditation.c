@@ -1,7 +1,7 @@
 void Meditation(Joueurs *joueurs, int nombre_joueurs, int joueur) {
     // Récupérer tous les points de vie du joueur actuel
     printf("%s utilise la carte Méditation et récupère tous ses points de vie.\n", joueurs[joueur].nom);
-    joueurs[joueur].vies = cartes_personnages[joueurs[joueur].index_perso][1];
+    joueurs[joueur].vies = cartes_personnage[joueurs[joueur].index_perso][1];
 
     // Choisir un autre joueur pour piocher une carte
     printf("Choisissez un autre joueur pour piocher une carte :\n");
@@ -26,4 +26,5 @@ void Meditation(Joueurs *joueurs, int nombre_joueurs, int joueur) {
     joueurs[joueurCible].cartes[carteChoisie] = rand() % 25; // Supposons que le deck a 25 cartes au maximum
 
     printf("Le joueur %s pioche une carte.\n", joueurs[joueurCible].nom);
+    printf("L'effet de Méditation à été éxécuté.\n");
 }

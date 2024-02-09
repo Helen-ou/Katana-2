@@ -8,7 +8,7 @@ void attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int pos
 {
     int parade;
     int distance = diff_attaque(position[0], position[1], nb_joueurs);
-    if (joueurs[position[1].vies] <= 0)
+    if (joueurs[position[1]].vies <= 0)
     {
         printf("Le joueur que vous souhaitez attaquer n'a déjà plus de vies !\n");
         return;
@@ -43,7 +43,7 @@ void attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int pos
         }
         if (parade == 0)
         {
-            printf("%s infligez %d dégats à %s", joueurs[position[1]].nom, degat, joueurs[position[1]].nom);
+            printf("%s infligez %d dégats à %s", joueurs[position[0]].nom, degat, joueurs[position[1]].nom);
             joueurs[position[1]].vies -= degat;
         }
         

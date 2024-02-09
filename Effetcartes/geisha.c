@@ -48,7 +48,9 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur) {
             } while (joueurs[joueurCible].cartes[carteChoisie] == -1); // Si la carte est invalide, piochez à nouveau
 
             // Ajouter cette carte à la main du joueur actuel
-            piocherCarte(&joueurs[joueur], joueurs[joueurCible].cartes[carteChoisie]);
+            // PiocherCarte(&joueurs[joueur], joueurs[joueurCible].cartes[carteChoisie]); A FAIRE!!!!!!!!
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             printf("%s a pioché une carte de %s.\n", joueurs[joueur].nom, joueurs[joueurCible].nom);
 
             // Défausser cette carte de la main du joueur cible
@@ -58,4 +60,5 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur) {
         default:
             printf("Choix invalide.\n");
     }
+    printf("L'effet de Geisha à été éxécuté.\n");
 }

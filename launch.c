@@ -39,5 +39,13 @@ Joueurs* lancement(int* nombre_joueurs) {
     printf("Nous allons pouvoir commencer la distribution des cartes !\n");
     pioche_tour1(joueurs, *nombre_joueurs);
     printf("%s va commencer ! \n", joueurs[0].nom);
+    /*printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[0]);
+    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[1]);
+    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[2]);
+    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[3]);
+    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[4]);
+    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[5]);
+    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[6]);
+    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[7]);*/
     return joueurs;
 }

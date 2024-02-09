@@ -1,7 +1,7 @@
 // Définition de la fonction CriDeGuerre
 #include <stdio.h>
 #include <stdlib.h>
-#include "../Katana.c"
+
 
 void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs) {
     // Afficher les joueurs disponibles
@@ -51,5 +51,6 @@ void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs) {
             break;
         default:
             printf("Choix invalide.\n");
+    printf("L'effet de Cri de Guerre à été éxécuté.\n");
     }
 }

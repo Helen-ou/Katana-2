@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "tableau.c"
 
 void afficherCartes(Joueurs *joueurs, int k)
 {
