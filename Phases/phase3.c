@@ -5,6 +5,8 @@ void phase_3(int k)
 { // a voir quel parametre prend la fonction
 
     // -> montrer ici le deck avec la fonction montrer_deck()
+    afficherCartes(joueurs, k);
+
     bool atta_jouer = false; // set up variable bool atta_jouer = False pour verif si une carte attaque a été utilisé (False si pas encore, True si utilisé)
 
     do
@@ -46,12 +48,16 @@ void phase_3(int k)
             if (verif_deck_perma(joueurs, k) == true)
             {
                 // -> Proposer option jouer une carte perma avec option 2
+                printf("Si vous voulez jouer une carte permanente, entrez 2")
             }
             if (verif_deck_act(joueurs, k) == true)
             {
                 // -> Proposer option jouer une carte act avec option 3
+                
             }
         }
+        printf("Quelle action souhaitez vous faire ? ")
+        scanf("%d", &option);
 
         if (option == 1)
         {
@@ -60,16 +66,33 @@ void phase_3(int k)
         else if (option == 2)
         {
             //-> lister ses carte perma et demander laquelle il veut jouer ->carte_a_jouer + proposition de retour en arriere
+            afficherCartesPerma(joueurs, k);
         }
         else if (option == 3)
         {
             //-> lister ses carte action et demander laquelle il veut jouer->carte_a_jouer + proposition de retour en arrière
+            afficherCartesActions(joueurs, k);
         }
         else if (option == 4)
         {
             if (attaque_jouer == false)
             {
                 // -> lister ses cartes actions et demander laquelle il veut jouer->carte_a_jouer + proposition de retour en arrière
+                afficherCartesAttaques(joueurs, k);
+                printf("Entrez le nom de la carte que vous voulez jouer :");
+                char carte[25];
+                scanf("%s", &carte);
+
+                int id_carte;
+                for(int i = 0; i < 13; i++){
+                    if(deck_noms[i]== carte){
+                        id_carte = i;
+                    }
+                }
+
+                int preci_carte = deck[id_carte][2];
+                int degat_carte = deck[id_carte][3];
+
                 // si pas de retour en arrière :
                 atta_jouer = false;
             }

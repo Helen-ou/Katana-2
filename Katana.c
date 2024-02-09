@@ -26,6 +26,6 @@ int main()
             k = 1;
         }
         break; // Pour tester le code, à mettre derrière une condition de fin de jeu
-    }
+    }   
     return 0;
 }

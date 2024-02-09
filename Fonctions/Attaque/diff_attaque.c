@@ -36,9 +36,11 @@ int diff_attaque(int joueur_a, int joueur_b, int nb_joueur) // joueur_a est le j
         }
 
         // difficulté d'attaque en prenant en compte la vie des joueurs
+        int compt;
         if (cas == 1)
         {
-            for (compt = joueur_a + 1; compt < joueur_b; compt++)
+             
+            for (int compt = joueur_a + 1; compt < joueur_b; compt++)
             {
                 if (true)
                 { // remplacer true par l'équivalent en c de "vie joueur(compt)==0"
@@ -55,7 +57,7 @@ int diff_attaque(int joueur_a, int joueur_b, int nb_joueur) // joueur_a est le j
                     temp2 = temp2 - 1;
                 }
             }
-            for (compt = 0 + 1; compt < joueur_a; compt++)
+            for (compt = 1; compt < joueur_a; compt++)
             {
                 if (true)
                 { // remplacer true par l'équivalent en c de "vie joueur(compt)==0"

@@ -1,5 +1,3 @@
-void Daimyo(Joueurs *joueur); {
-// Pioche deux cartes
-Carte cartePiochee = drawCard(&deck);
-Carte cartePiochee = drawCard(&deck);
- }
+void Daimyo(Joueurs *joueurs, int k, Deck *deck) {
+    distribution(joueurs, k, deck, 2); // Pioche deux cartes
+}
