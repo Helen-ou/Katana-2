@@ -11,7 +11,7 @@ int check_honneur(Joueurs *joueurs, int nombre_joueurs)
         if (joueurs[i].honneur <= 0)
         {
             joueurs[i].fin = 0; // ded
-            printf("\nLe joueur %d n'a plus d'honneur et commet le seppuku!", i);
+            printf("\nLe joueur %s n'a plus d'honneur et commet le seppuku!", joueurs[i].nom);
         }
     }
     return fin;

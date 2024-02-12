@@ -21,10 +21,11 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
     bool atta_jouer = false; // set up variable bool atta_jouer = False pour verif si une carte attaque a été utilisé (False si pas encore, True si utilisé)
     bool jouer_carte = false;
     char carte[25];
+    int option;
     do
     { // boucle do while pour jouer tant que bool jouer_carte == True
 
-        int option = 0;
+        option = 0;
 
         // -> proposer l'aret de son tour avec option 1
         printf("Si ne voulez pas ou plus jouer de carte, entrez 1\n");
@@ -45,10 +46,15 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 printf("Si vous voulez jouer une carte d'attaque, entrez 4\n");
             }
             printf("Quelle action souhaitez vous faire ? \n");
-                scanf("%d", &option);
+            scanf("%d", &option);
         }
         else
         {
+
+            // bool CarteConcentration = Concentration(joueurs, k);
+            // if (CarteConcentration) {
+            // printf("Si vous voulez joruer rejouer une carte attaque, entrez 1\n");
+            //  }
             if (verif_deck_perma(joueurs, k) == true)
             {
                 // -> Proposer option jouer une carte perma avec option 2
@@ -58,9 +64,9 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
             {
                 // -> Proposer option jouer une carte act avec option 3
             }
+            printf("Quelle action souhaitez vous faire ? \n");
+            scanf("%d", &option);
         }
-        printf("Quelle action souhaitez vous faire ? \n");
-        scanf("%d", &option);
 
         if (option == 1)
         {
@@ -157,9 +163,9 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 printf("Voici les joueurs que vous pouvez attaquez : \n");
                 for (int j = 0; j < nb_joueurs; j++)
                 {
-                    if (joueurs[k].vies != 0 && diff_attaque(k, j, nb_joueurs) <= preci_carte && k!=j)
+                    if (joueurs[k].vies != 0 && diff_attaque(joueurs, j, k, nb_joueurs) <= preci_carte && k != j)
                     {
-                        printf("Tu peux attaquer le joueur %s numero %d\n", j, joueurs[k].nom);
+                        printf("Tu peux attaquer le joueur %s numero %d\n", joueurs[j].nom, j);
                     }
                 }
                 printf("Parmis eux, lequel voulez-vous attaquer ? (entrez le numero)\n");
@@ -175,6 +181,5 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 printf("Vous avez déja joué une carte attaque, vous ne pouvez le faire qu'une fois par tour\n");
             }
         }
-
     } while (jouer_carte == true);
 }

@@ -67,7 +67,7 @@ void afficherCartesAttaques(Joueurs *joueurs, int k)
             if (deck[joueurs[k].cartes[i] + 1][2] > 0)
             {
                 int id_carte = joueurs[k].cartes[i];
-                printf("Le joueur %s possède %s qui a %d d'attaque et %d de précision.\n", joueurs[k].nom, deck_noms[id_carte], deck[joueurs[k].cartes[i] + 1][3], deck[joueurs[k].cartes[i] + 1][3]);
+                printf("Le joueur %s possède %s qui a %d d'attaque et %d de précision.\n", joueurs[k].nom, deck_noms[id_carte], deck[joueurs[k].cartes[i]][3], deck[joueurs[k].cartes[i]][2]);
             }
         }
     }

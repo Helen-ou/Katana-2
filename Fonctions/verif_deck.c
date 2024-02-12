@@ -12,7 +12,7 @@ bool verif_deck_perma(Joueurs *joueurs, int k)
         }
         else
         {
-            if (deck[joueurs[k].cartes[i] + 1][4] == true)
+            if (deck[joueurs[k].cartes[i]][4] == true)
             {
                 avoir_carte_perma = true;
             }
@@ -32,7 +32,7 @@ bool verif_deck_act(Joueurs *joueurs, int k)
         }
         else
         {
-            if (deck[joueurs[k].cartes[i] + 1][2] == -1 && deck[joueurs[k].cartes[i]][4] == false)
+            if (deck[joueurs[k].cartes[i]][2] == -1 && deck[joueurs[k].cartes[i]][4] == false)
             {
                 avoir_carte_act = true;
             }
@@ -52,7 +52,7 @@ bool verif_deck_atta(Joueurs *joueurs, int k)
         }
         else
         {
-            if (deck[joueurs[k].cartes[i] + 1][2] > 0)
+            if (deck[joueurs[k].cartes[i]][2] > 0)
             {
                 avoir_carte_atta = true;
             }

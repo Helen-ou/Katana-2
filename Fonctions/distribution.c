@@ -31,12 +31,14 @@ void distribution(Joueurs *joueurs, int id_joueur, int deck[25][5], int nb_carte
             randomIndex = randomise_index(deck);
             for (int i = 0; i < 14; i++)
             {
-                if (joueurs[id_joueur].cartes[i] <= 0) {
+                if (joueurs[id_joueur].cartes[i] <= 0)
+                {
                     joueurs[id_joueur].cartes[i] = deck[randomIndex][0]; // Assigne une id de carte
                     break;
                 }
             }
         }
+        return;
     }
     for (int k = 0; k < nb_cartes_dist; k++)
     {

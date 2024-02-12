@@ -1,15 +1,23 @@
 // Fonction attaque
 #include <stdio.h>
+#include "../../Effetcartes/armure.c"
 
-int diff_attaque(int joueur_a, int joueur_b, int nb_joueur) // joueur_a est le joueur qui attaque et joueur_b est le joueur qui reçoie
+int diff_attaque(Joueurs *joueurs, int joueur_a, int joueur_b, int nb_joueur) // joueur_a est le joueur qui attaque et joueur_b est le joueur qui reçoie
 {                                                           // j_a e j_b prennent e parametre le numero du joueur ( si 7 joueurs, les num vont de 1 a 7 et non de 0 a 6, donc num a modif avec un +1 si jamais)
     joueur_a += 1;
     joueur_b += 1;                                   
     int temp = 0;
     int temp2 = 0;
     int cas = 0;
+    
     if (nb_joueur == 3)
-    {
+    { 
+        /*if (armure(joueurs, joueur_b)==0){
+            return 1;
+        }
+        else{
+            return 1 + armure(joueurs, joueur_b);
+        }*/
         return 1;
     }
     else
@@ -66,6 +74,12 @@ int diff_attaque(int joueur_a, int joueur_b, int nb_joueur) // joueur_a est le j
             }
         }
 
+        /*if (armure(joueurs, joueur_b)==0){
+            return temp2;
+        }
+        else{
+            return temp2 + armure(joueurs, joueur_b);
+        }*/
         return temp2;
     }
 }

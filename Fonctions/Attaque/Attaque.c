@@ -7,7 +7,7 @@
 void attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int position[2])
 {
     int parade;
-    int distance = diff_attaque(position[0], position[1], nb_joueurs);
+    int distance = diff_attaque(joueurs, position[0], position[1], nb_joueurs);
     if (joueurs[position[1]].vies <= 0)
     {
         printf("Le joueur que vous souhaitez attaquer n'a déjà plus de vies !\n");
@@ -21,32 +21,30 @@ void attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int pos
             if (joueurs[position[1]].cartes[i] == 19) // Si id carte vaut id 19 pour parade
             {
                 while (1)
-                { // Si joueur ne mets pas une entrée correcte
+                { // Boucle si joueur ne mets pas une entrée correcte ; parade
                     printf("%s, souhaitez-vous utiliser votre carte parade ? Rentrez 'oui' ou 'non'", joueurs[position[1]].nom);
                     char string[3];
                     scanf("%s", string);
-                    if (string == "Non")
+                    if (string == "non")
                     {
-                        printf("\n%s reçoit normalement les dégats\n", joueurs[position[1]].nom);
-                        break;
+                        printf("\n%s reçoit normalement %d dégats\n", joueurs[position[1]].nom, degat);
+                        joueurs[position[1]].vies -= degat;
+                        return;
                     }
                     else if (string == "oui")
                     {
-                        printf("\n Votre carte parade annule tout vos dégats");
+                        printf("\n Votre carte parade annule tout vos dégats\n");
                         parade = 1;
-                        break;
-                    } else {
-                        
+                        return;
                     }
                 }
             }
+            if (parade == 0)
+            {
+                printf("%s infligez %d dégats à %s\n", joueurs[position[0]].nom, degat, joueurs[position[1]].nom);
+                joueurs[position[1]].vies -= degat;
+                return;
+            }
         }
-        if (parade == 0)
-        {
-            printf("%s infligez %d dégats à %s", joueurs[position[0]].nom, degat, joueurs[position[1]].nom);
-            joueurs[position[1]].vies -= degat;
-        }
-        
     }
 }
-

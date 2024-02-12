@@ -24,7 +24,7 @@ int main()
         }
         phase_4(joueurs, joueur_actif);
 
-        if (joueur_actif == nombre_joueurs)
+        if (joueur_actif == nombre_joueurs - 1)
         {
             joueur_actif = 0;
         }
