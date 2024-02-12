@@ -15,7 +15,7 @@ int classes[][4] = {
 int deck[25][5] = {
     // Définition des armes
     {1, 1, 3, 300000, false},  // Nodachi
-    {2, 1, 4, 2, false},  // Nagayari
+    {2, 1, 4, 20000, false},  // Nagayari
     {3, 1, 5, 1, false},  // Tanegashima
     {4, 1, 5, 3, false},  // Daikyu
     {5, 1, 2, 3, false},  // Katana
@@ -42,7 +42,7 @@ int deck[25][5] = {
     {24, 4, -1, -1, true},  // Armure
     {25, 4, -1, -1, true}}; // Concentration
 
-int *defausse = deck;
+int (*defausse)[5] = deck;
 
 char deck_noms[60][50] = {"Nodachi", "Nagayari", "Tanegashima", "Daikyu", "Katana", "Kanabo", "Wakizashi", "Naginata",
                           "Bo", "Kusarigama", "Shuriken", "Bokken", "Kiseru", "CriDeGuerre", "Daimyo", "Diversion", "Geisha", "Méditation",

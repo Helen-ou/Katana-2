@@ -19,7 +19,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
     afficherCartes(joueurs, k);
 
     bool atta_jouer = false; // set up variable bool atta_jouer = False pour verif si une carte attaque a été utilisé (False si pas encore, True si utilisé)
-    bool jouer_carte = false;
+    bool jouer_carte = true;
     char carte[25];
     int option;
     do

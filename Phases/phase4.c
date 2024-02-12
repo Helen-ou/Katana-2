@@ -29,7 +29,7 @@ void phase_4(Joueurs *joueurs, int k) // Reitère pour chaque joueur qui joue
         }
 
         int choix;
-        int doublon[7]; // éviter que la même carte soit retirée 2 fois
+        int doublon[15]; // éviter que la même carte soit retirée 2 fois
         do
         {
             do
@@ -40,7 +40,8 @@ void phase_4(Joueurs *joueurs, int k) // Reitère pour chaque joueur qui joue
                 {
                     if (choix == doublon[j])
                     {
-                        verification = 1 break
+                        verification = 1;
+                        break;
                     }
                     else
                     {
@@ -48,14 +49,10 @@ void phase_4(Joueurs *joueurs, int k) // Reitère pour chaque joueur qui joue
                     }
                 }
             } while (choix < 1 && verification == 1);
-
-            printf("Ceci est le variable Index : %d\n", index);
-
-            for (int i = choix - 1; i < index - 1; i++)
-                joueurs[k].cartes[i] = joueurs[k].cartes[i + 1];
-
-            joueurs[k].cartes[index - 1] = '\0';
-            printf("La carte a été défaussée avec succès.\n");
+            
+            printf("La carte %s a été défaussée avec succès.\n", deck_noms[joueurs[k].cartes[choix - 1]]);
+            joueurs[k].cartes[choix - 1] = -1;
+            doublon[index] = choix;
             index -= 1;
         } while (index > 7);
     }
