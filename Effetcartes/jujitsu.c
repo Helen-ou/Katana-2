@@ -1,19 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 // Définition de la fonction Ju Jitsu
-int verifier_arme(Joueurs *joueurs, id_joueur)
-{
-    for (int j = 0; j < 14; j++)
-    {
-        if (joueurs[id_joueur].cartes[j] > 0 && joueurs[id_joueur].cartes[j] < 14)
-        {
-            return 1;
-        }
-    }
-    return 0;
-}
 
 void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
 {
     int choix = 0;
+    int arme_existe = 0;
     for (int i = 0; i < nombre_joueurs; i++)
     {
         if (i != joueur_actif)
@@ -22,7 +15,15 @@ void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
             {
                 printf("Rentrez 1 si vous préférez défausser une arme et 2 si vous préférez perdre un PV : ");
                 scanf("%d", &choix);
-                if ((choix == 1 && verifier_arme(joueurs, i) == 1) || choix == 2)
+                for (int j = 0; j < 14; j++)
+                {
+                    if (joueurs[i].cartes[j] > 0 && joueurs[i].cartes[j] < 14)
+                    {   
+                        arme_existe = 1;
+                        break;
+                    }
+                }
+                if ((choix == 1 && arme_existe == 1) || choix == 2)
                 {
                     break;
                 }
@@ -61,13 +62,16 @@ void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
                 {
                     if (joueurs[i].cartes[j] > 0 && joueurs[i].cartes[j] < 14)
                     {
-                        compteur_2 += 1
-                        if (compteur == compteur_2) {
+                        compteur_2 += 1;
+                        if (compteur == compteur_2)
+                        {
                             joueurs[i].cartes[j] = -1;
                         }
                     }
                 }
-            } else {
+            }
+            else
+            {
                 joueurs[i].vies -= 1;
             }
             printf("L'effet de Jujitsu à été éxécuté.\n");

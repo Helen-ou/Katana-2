@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include "../Fonctions/Attaque/echanger_carte.c"
 
 // Définition de la fonction Geisha
 void Diversion(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)

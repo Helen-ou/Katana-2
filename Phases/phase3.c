@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+
+#include "../Fonctions/Attaque/echanger_carte.c"
+#include "../Effetcartes/armure.c"
 #include "../Fonctions/defaussecarteid.c"
 #include "../Fonctions/verif_deck.c"
 #include "../Fonctions/Attaque/Attaque.c"
@@ -11,8 +14,6 @@
 #include "../Effetcartes/geisha.c"
 #include "../Effetcartes/jujitsu.c"
 #include "../Effetcartes/meditation.c"
-#include "../Fonctions/Attaque/echanger_carte.c"
-#include "../Effetcartes/armure.c"
 
 void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
 {                                                     // a voir quel parametre prend la fonction
@@ -29,8 +30,8 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
 
         option = 0;
 
-        // -> proposer l'aret de son tour avec option 1
-        printf("Si ne voulez pas ou plus jouer de carte, entrez 1\n");
+        // -> proposer l'arret de son tour avec option 1
+        printf("Si vous ne voulez pas ou plus jouer de carte, entrez 1\n");
         if (atta_jouer == false)
         {
             if (verif_deck_perma(joueurs, k) == true)

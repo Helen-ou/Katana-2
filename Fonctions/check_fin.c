@@ -3,35 +3,32 @@
 
 int check_honneur(Joueurs *joueurs, int nombre_joueurs)
 {
-    int i;
-    int fin; // Condition de fin dans routine
-    int n;   // Nombre de mort
-    for (i; i < nombre_joueurs; i++)
+    for (int i = 0; i < nombre_joueurs; i++)
     {
         if (joueurs[i].honneur <= 0)
         {
-            joueurs[i].fin = 0; // ded
-            printf("\nLe joueur %s n'a plus d'honneur et commet le seppuku!", joueurs[i].nom);
+            return 1;
         }
     }
-    return fin;
+    return 0;
 }
 
 int check_pv_fin(Joueurs *joueurs, int nombre_joueurs)
 {
-    int i;
-    int fin; // Condition de fin dans routine
-    int n;
-    for (i; i < nombre_joueurs; i++)
+    int compteur;
+    for (int i = 0; i < nombre_joueurs; i++)
     {
-        if (n >= nombre_joueurs - 1)
+        if (joueurs[i].vies <= 0)
         {
-            fin = 1;
-        }
-        else if (joueurs[i].vies <= 0)
-        {
-            n += 1;
+            compteur += 1;
         }
     }
-    return fin;
+    if (compteur >= nombre_joueurs - 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }

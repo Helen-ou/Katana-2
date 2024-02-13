@@ -17,7 +17,7 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
     case 1:
     {
         // Les cartes permanentes ont des IDs de 21 à 24
-        printf("%s choisit de défausser une carte permanente en jeu.\n", joueurs[joueur].nom);
+        printf("%s choisit de défausser une carte permanente en jeu.\n", joueurs[joueur_actif].nom);
         int cartes_perma_possedes[4];
         int compteur = 0;
         // On cherche les cartes du joueur
@@ -38,20 +38,20 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
         }
         else
         {
-            printf("Aucune carte permanente en jeu dans la main de %s.\n", joueurs[joueur].nom);
+            printf("Aucune carte permanente en jeu dans la main de %s.\n", joueurs[joueur_actif].nom);
             return;
         }
     }
     case 2:
     {
         // Piocher une carte au hasard d'un autre joueur
-        printf("%s choisit de piocher une carte au hasard d'un autre joueur.\n", joueurs[joueur].nom);
+        printf("%s choisit de piocher une carte au hasard d'un autre joueur.\n", joueurs[joueur_actif].nom);
 
         // Afficher les joueurs disponibles avec leurs indices
         printf("Joueurs disponibles :\n");
         for (int i = 0; i < nombre_joueurs; i++)
         {
-            if (joueurs[i] != joueurs[joueur_actif])
+            if (i != joueur_actif)
             {
                 printf("%s\n", joueurs[i].nom);
             }
@@ -83,7 +83,7 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
         int id_joueur;
         for (int i = 0; i < 7; i++)
         {
-            if (strcmp(joueurs[i].nom, joueurs[joueur_cible]) == 0)
+            if (strcmp(joueurs[i].nom, joueur_cible) == 0)
             {
                 id_joueur = i;
             }

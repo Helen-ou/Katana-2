@@ -1,4 +1,6 @@
-// Va vérifier le nombre de points de chaque joueurs et les afficher
+#include <stdio.h>
+
+/*// Va vérifier le nombre de points de chaque joueurs et les afficher
 #include <stdio.h>
 
 // Echanger 2 éléments
@@ -47,4 +49,14 @@ void point_calcul(Joueurs *joueurs, int nb_joueurs)
   selectionSort(tableau_p, taille);
   printf("Les résultats des points de la partie sont : \n");
   printArray(tableau_p, taille);
+}*/
+
+void point_calcul(Joueurs *joueurs, int nb_joueurs)
+{
+  int multiplicateurs[5][4] = {{2, 0, 1, 0}, {1, 2, 1.5, 0}, {1, 1, 1, 2}, {1, 2, 1, 3}, {1, 1, 1, 3}};
+  int points_factions[4];
+  for (int i = 0; i < nb_joueurs; i++)
+  {
+      
+  }
 }
