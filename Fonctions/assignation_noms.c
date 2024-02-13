@@ -3,12 +3,12 @@
 
 void assignerNomEtClasse(Joueurs *joueurs, int nombre_joueurs, int classes[][4]) {
     int i, random;
-    char nom_joueur[50]; // Assurez-vous que cette taille est suffisante pour tous les noms de joueurs
+    char nom_joueur[50];
 
     for (i = 0; i < nombre_joueurs; i++)
     {
         printf("Joueur %d, quel est votre nom ? ", i + 1);
-        scanf("%s", nom_joueur);            // Ne supporte que les noms sans espaces
+        scanf("%s", nom_joueur);            
         strcpy(joueurs[i].nom, nom_joueur); // Donne le nom au joueur
 
         while (1)

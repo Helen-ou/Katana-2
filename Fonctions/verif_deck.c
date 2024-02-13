@@ -4,9 +4,9 @@
 bool verif_deck_perma(Joueurs *joueurs, int k)
 {
     bool avoir_carte_perma = false;
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < 14; i++)
     {
-        if (joueurs[k].cartes[i] == 0)
+        if (joueurs[k].cartes[i] < 0)
         {
             break;
         }
@@ -24,9 +24,9 @@ bool verif_deck_perma(Joueurs *joueurs, int k)
 bool verif_deck_act(Joueurs *joueurs, int k)
 {
     bool avoir_carte_act = false;
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < 14; i++)
     {
-        if (joueurs[k].cartes[i] == 0)
+        if (joueurs[k].cartes[i] < 0)
         {
             break;
         }
@@ -44,9 +44,9 @@ bool verif_deck_act(Joueurs *joueurs, int k)
 bool verif_deck_atta(Joueurs *joueurs, int k)
 {
     bool avoir_carte_atta = false;
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < 14; i++)
     {
-        if (joueurs[k].cartes[i] == 0)
+        if (joueurs[k].cartes[i] < 0)
         {
             break;
         }

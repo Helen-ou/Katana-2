@@ -31,6 +31,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
         printf("Si ne voulez pas ou plus jouer de carte, entrez 1\n");
         if (atta_jouer == false)
         {
+            printf("je passe avec attaque valide");
             if (verif_deck_perma(joueurs, k) == true)
             {
                 // -> Proposer option jouer une carte perma avec option 2
@@ -50,6 +51,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
         }
         else
         {
+            printf("je passe avec attaque pas valide");
 
             // bool CarteConcentration = Concentration(joueurs, k);
             // if (CarteConcentration) {
@@ -174,7 +176,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 int pers[2] = {k, j_visé};
                 attaque(joueurs, preci_carte, degat_carte, nb_joueurs, pers);
                 // si pas de retour en arrière :
-                atta_jouer = false;
+                atta_jouer = true;
             }
             else
             {
