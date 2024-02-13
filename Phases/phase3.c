@@ -11,6 +11,8 @@
 #include "../Effetcartes/geisha.c"
 #include "../Effetcartes/jujitsu.c"
 #include "../Effetcartes/meditation.c"
+#include "../Fonctions/Attaque/echanger_carte.c"
+#include "../Effetcartes/armure.c"
 
 void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
 {                                                     // a voir quel parametre prend la fonction
@@ -31,7 +33,6 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
         printf("Si ne voulez pas ou plus jouer de carte, entrez 1\n");
         if (atta_jouer == false)
         {
-            printf("je passe avec attaque valide");
             if (verif_deck_perma(joueurs, k) == true)
             {
                 // -> Proposer option jouer une carte perma avec option 2
@@ -51,7 +52,6 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
         }
         else
         {
-            printf("je passe avec attaque pas valide");
 
             // bool CarteConcentration = Concentration(joueurs, k);
             // if (CarteConcentration) {
@@ -114,31 +114,31 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
 
             if (strcmp(carte, "CriDeGuerre") == 0) // Vérifie si la carte que souhaite jouer le joueur r
             {
-                // CriDeGuerre(Joueurs *joueurs, nb_joueurs);
+                CriDeGuerre(joueurs, nb_joueurs);
             }
             else if (strcmp(carte, "Daimyo") == 0)
             {
-                // Daimyo();
+                Daimyo(joueurs, k, deck);
             }
             else if (strcmp(carte, "Diversion") == 0)
             {
-                // Diversion();
+                Diversion(joueurs, nb_joueurs, k);
             }
             else if (strcmp(carte, "Geisha") == 0)
             {
-                // Geisha();
+                Geisha(joueurs, nb_joueurs, k);
             }
             else if (strcmp(carte, "Meditation") == 0)
             {
-                // Meditation();
+                Meditation(joueurs, nb_joueurs, k);
             }
             else if (strcmp(carte, "Jujitsu") == 0)
             {
-                // JuJitsu();
+                JuJitsu(joueurs, nb_joueurs, k);
             }
             else if (strcmp(carte, "CeremonieDuThe") == 0)
             {
-                // CeremonieDuThe(Joueurs *joueurs, nb_joueurs, k, Deck *deck);
+                CeremonieDuThe(joueurs, nb_joueurs, k, deck);
             }
         }
         else if (option == 4)

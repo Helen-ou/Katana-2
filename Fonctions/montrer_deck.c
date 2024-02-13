@@ -46,7 +46,7 @@ void afficherCartesActions(Joueurs *joueurs, int k)
         else
         {
             if (deck[joueurs[k].cartes[i]][2] == -1 && deck[joueurs[k].cartes[i]][4] == false)
-            {
+            { 
                 int id_carte = joueurs[k].cartes[i];
                 printf("Le joueur %s possède %s.\n", joueurs[k].nom, deck_noms[id_carte]);
             }

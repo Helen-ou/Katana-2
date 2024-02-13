@@ -1,30 +1,49 @@
-// Définition de la fonction Diversion
-void Diversion(Joueurs *joueurs, int nombre_joueurs, int joueur) {
-    // Afficher les joueurs disponibles avec leurs indices
+#include <stdio.h>
+#include <string.h>
+#include "../Fonctions/Attaque/echanger_carte.c"
+
+// Définition de la fonction Geisha
+void Diversion(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
+{
     printf("Joueurs disponibles :\n");
-    for (int i = 0; i < nombre_joueurs; i++) {
-        if (i != joueur) {
-            printf("%d. %s\n", i + 1, joueurs[i].nom);
+    for (int i = 0; i < nombre_joueurs; i++)
+    {
+        if (i != joueur_actif)
+        {
+            printf("%s\n", joueurs[i].nom);
         }
     }
 
     // Demander au joueur de choisir le joueur cible
-    int joueurCible;
-    do {
-        printf("Choisissez le joueur à affecter (1-%d) : ", nombre_joueurs - 1);
-        scanf("%d", &joueurCible);
-        joueurCible--; 
-    } while (joueurCible < 0 || joueurCible >= nombre_joueurs || joueurCible == joueur);
-
-   
-    int carteChoisie;
-    do {
-        carteChoisie = rand() % 7; 
-    } while (joueurs[joueurCible].cartes[carteChoisie] == -1); 
-
-    joueurs[joueur].cartes[0] = joueurs[joueurCible].cartes[carteChoisie];
-    printf("%s a pioché une carte de %s.\n", joueurs[joueur].nom, joueurs[joueurCible].nom);
-
-    defausserCarte(&joueurs[joueurCible], joueurs[joueurCible].cartes[carteChoisie]);
-    printf("L'effet de Diversion à été éxécuté.\n");
+    char joueur_cible[25];
+    int joueur_valide = 0;
+    while (1)
+    {
+        printf("Rentrez le nom du joueur que vous souhaitez cibler : ");
+        scanf("%s", &joueur_cible);
+        for (int i = 0; i < nombre_joueurs; i++)
+        {
+            if (strcmp(joueur_cible, joueurs[i].nom) == 0)
+            {
+                joueur_valide = 1;
+            }
+        }
+        if (joueur_valide == 1)
+        {
+            break;
+        }
+        else
+        {
+            printf("Le nom que vous avez saisi n'est pas valide !\n");
+        }
+    }
+    int id_joueur;
+    for (int i = 0; i < 7; i++)
+    {
+        if (strcmp(joueurs[i].nom, joueur_cible) == 0)
+        {
+            id_joueur = i;
+        }
+    }
+    echanger_carte(joueurs, joueur_actif, id_joueur);
 }

@@ -1,41 +1,76 @@
 // Définition de la fonction Ju Jitsu
-void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur) {
-    // Parcourir tous les joueurs sauf le joueur actuel
-    for (int i = 0; i < nombre_joueurs; i++) {
-        if (i != joueur) {
-            // Vérifier si le joueur n'est pas à terre (a plus de 0 PV)
-            if (joueurs[i].vies > 0) {
-                printf("%s doit défausser une arme ou perdre 1 point de vie.\n", joueurs[i].nom);
-                
-                // Demander au joueur de choisir entre défausser une arme ou perdre 1 point de vie
-                printf("1. Défausser une arme\n");
-                printf("2. Perdre 1 point de vie\n");
-                
-                int choix;
-                scanf("%d", &choix);
-
-                switch (choix) {
-                    case 1:
-                        printf("%s défausse une arme.\n", joueurs[i].nom);
-                        // Défausser une arme ayant un ID de 1 à 13
-                        for (int j = 0; j < 7; j++) {
-                            if (joueurs[i].cartes[j] >= 1 && joueurs[i].cartes[j] <= 13) {
-                                defausserCarte(joueurs, joueurs[i].cartes[j]);
-                                break; // Sortir de la boucle une fois qu'une arme est défaussée
-                            }
-                        }
-                        break;
-                    case 2:
-                        printf("%s perd 1 point de vie.\n", joueurs[i].nom);
-                        joueurs[i].vies--;
-                        break;
-                    default:
-                        printf("Choix invalide pour %s.\n", joueurs[i].nom);
-                }
-            } else {
-                printf("%s est à terre et n'est pas affecté par Ju Jitsu.\n", joueurs[i].nom);
-            }
+int verifier_arme(Joueurs *joueurs, id_joueur)
+{
+    for (int j = 0; j < 14; j++)
+    {
+        if (joueurs[id_joueur].cartes[j] > 0 && joueurs[id_joueur].cartes[j] < 14)
+        {
+            return 1;
         }
     }
-    printf("L'effet de Jujitsu à été éxécuté.\n");
+    return 0;
+}
+
+void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
+{
+    int choix = 0;
+    for (int i = 0; i < nombre_joueurs; i++)
+    {
+        if (i != joueur_actif)
+        {
+            while (1)
+            {
+                printf("Rentrez 1 si vous préférez défausser une arme et 2 si vous préférez perdre un PV : ");
+                scanf("%d", &choix);
+                if ((choix == 1 && verifier_arme(joueurs, i) == 1) || choix == 2)
+                {
+                    break;
+                }
+                else
+                {
+                    printf("Le nombre que vous avez renseigné n'est pas valide\n");
+                }
+            }
+
+            if (choix == 1)
+            {
+                printf("Parmi ces armes, lesquels souhaitez vous défausser ?\n");
+                int compteur;
+                for (int j = 0; i < 14; i++)
+                { // Nombre d'armes dans le deck & énonciation au joueur
+                    if (joueurs[i].cartes[j] > 0 && joueurs[i].cartes[j] < 14)
+                    {
+                        printf("%s ayant %d attaque et %d précision", deck_noms[joueurs[i].cartes[j]], deck[joueurs[i].cartes[j]][2], deck[joueurs[i].cartes[j]][3]);
+                        compteur += 1;
+                    }
+                }
+                int arme_defausse;
+                while (1)
+                { // Question zrme à défausser
+                    printf("Choisissez quelle arme vous souhaitez défausser (1-%d)", compteur);
+                    scanf("%d", arme_defausse);
+                    if (arme_defausse > compteur || arme_defausse < 0)
+                    {
+                        printf("Vous avez rentré un chiffre trop grand ou trop petit !");
+                        continue;
+                    }
+                }
+                int compteur_2 = 0;
+                // Défausser carte
+                for (int j = 0; i < 14; i++)
+                {
+                    if (joueurs[i].cartes[j] > 0 && joueurs[i].cartes[j] < 14)
+                    {
+                        compteur_2 += 1
+                        if (compteur == compteur_2) {
+                            joueurs[i].cartes[j] = -1;
+                        }
+                    }
+                }
+            } else {
+                joueurs[i].vies -= 1;
+            }
+            printf("L'effet de Jujitsu à été éxécuté.\n");
+        }
+    }
 }
