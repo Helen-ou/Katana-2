@@ -3,7 +3,7 @@
 
 // Définition de la fonction Ju Jitsu
 
-void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
+void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif, int deck[25][5])
 {
     int choix = 0;
     int arme_existe = 0;
@@ -13,12 +13,12 @@ void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
         {
             while (1)
             {
-                printf("Rentrez 1 si vous préférez défausser une arme et 2 si vous préférez perdre un PV : ");
+                printf("%s, rentrez 1 si vous préférez défausser une arme et 2 si vous préférez perdre un PV : ", joueurs[i].nom);
                 scanf("%d", &choix);
                 for (int j = 0; j < 14; j++)
                 {
-                    if (joueurs[i].cartes[j] > 0 && joueurs[i].cartes[j] < 14)
-                    {   
+                    if (deck[joueurs[i].cartes[j]][2] > 0)
+                    {
                         arme_existe = 1;
                         break;
                     }
@@ -36,45 +36,45 @@ void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
             if (choix == 1)
             {
                 printf("Parmi ces armes, lesquels souhaitez vous défausser ?\n");
-                int compteur;
-                for (int j = 0; i < 14; i++)
-                { // Nombre d'armes dans le deck & énonciation au joueur
-                    if (joueurs[i].cartes[j] > 0 && joueurs[i].cartes[j] < 14)
-                    {
-                        printf("%s ayant %d attaque et %d précision", deck_noms[joueurs[i].cartes[j]], deck[joueurs[i].cartes[j]][2], deck[joueurs[i].cartes[j]][3]);
-                        compteur += 1;
-                    }
-                }
-                int arme_defausse;
+                afficherCartesAttaques(joueurs, i);
+                char arme_defausse[25];
+                int breaking = 0; // Pour sortir de while
+                int id_carte;
+
                 while (1)
                 { // Question arme à défausser
-                    printf("Choisissez quelle arme vous souhaitez défausser (1-%d)", compteur);
-                    scanf("%d", arme_defausse);
-                    if (arme_defausse > compteur || arme_defausse < 0)
+                    printf("Entrez le nom de la carte que vous voulez jouer :\n");
+                    char arme_defausse[25];
+                    scanf("%s", &arme_defausse);
+
+                    for (int i = 0; i < 14; i++)
                     {
-                        printf("Vous avez rentré un chiffre trop grand ou trop petit !");
+                        if (strcmp(arme_defausse, deck_noms[i]) == 0)
+                        {
+                            id_carte = i;
+                            breaking = 1;
+                        }
+                    }
+                    if (breaking)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        printf("Le nom que vous avez rentré n'est pas correct !\n");
                         continue;
                     }
                 }
-                int compteur_2 = 0;
+
                 // Défausser carte
-                for (int j = 0; i < 14; i++)
-                {
-                    if (joueurs[i].cartes[j] > 0 && joueurs[i].cartes[j] < 14)
-                    {
-                        compteur_2 += 1;
-                        if (compteur == compteur_2)
-                        {
-                            joueurs[i].cartes[j] = -1;
-                        }
-                    }
-                }
+                defausserCarte(joueurs, i, id_carte);
             }
             else
             {
                 joueurs[i].vies -= 1;
             }
-            printf("L'effet de Jujitsu à été éxécuté.\n");
         }
+
+        printf("L'effet de Jujitsu à été éxécuté.\n");
     }
 }

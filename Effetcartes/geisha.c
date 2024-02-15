@@ -18,12 +18,12 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
     {
         // Les cartes permanentes ont des IDs de 21 à 24
         printf("%s choisit de défausser une carte permanente en jeu.\n", joueurs[joueur_actif].nom);
-        int cartes_perma_possedes[14];
+        int cartes_perma_possedes[15];
         int compteur = 0;
         // On cherche les cartes du joueur
         for (int i = 0; i < 14; i++)
         {
-            if (joueurs[joueur_actif].carte_perma[i] > 0)
+            if (joueurs[joueur_actif].cartes[i] > 0)
             {
                 cartes_perma_possedes[compteur] = i;
                 compteur += 1;
@@ -33,7 +33,7 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
         if (compteur > 0)
         {
             int random = rand() % compteur;
-            joueurs[joueur_actif].carte_perma[cartes_perma_possedes[random]] = -1;
+            joueurs[joueur_actif].cartes[cartes_perma_possedes[random]] = -1;
             return;
         }
         else
@@ -88,7 +88,7 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
                 id_joueur = i;
             }
         }
-        echanger_carte(joueurs, joueur_actif, id_joueur);
+        echanger_carte(joueurs, joueur_actif, id_joueur); // Echange les deux cartes
     }
     default:
         printf("Choix invalide.\n");

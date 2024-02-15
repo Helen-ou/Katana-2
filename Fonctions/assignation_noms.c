@@ -1,6 +1,6 @@
+// Assigne le nom des joueurs, leur classe et initialise les points d'honneur des joueurs.
 #include <stdio.h>
 #include <string.h>
-// Assigne le nom des joueurs, leur classe et initialise les points d'honneur des joueurs.
 
 void assignerNomEtClasse(Joueurs *joueurs, int nombre_joueurs, int classes[][4])
 {
@@ -39,5 +39,10 @@ void assignerNomEtClasse(Joueurs *joueurs, int nombre_joueurs, int classes[][4])
         {
             joueurs[i].honneur = 5;
         }
+    }
+    // Mettre armure à valeur par défaut
+    for (int i = 0; i < nombre_joueurs; i++)
+    {
+        joueurs[i].armure = 1;
     }
 }

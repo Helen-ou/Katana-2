@@ -35,11 +35,11 @@ int deck[25][5] = {
     {18, 1, -1, -1, false},  // Méditation
     {19, 2, -1, -1, false}, // Parade
     {20, 4, -1, -1, false},  // CérémonieDuThé
-    {21, 3, -1, -1, false},  // Jujitsu
+    {21, 300, -1, -1, false},  // Jujitsu
     // Définition des cartes permanentes
     {22, 4, -1, -1, true},  // AttaqueRapide
     {23, 2, -1, -1, true},  // CodeDuBushido
-    {24, 40, -1, -1, true},  // Armure
+    {24, 4, -1, -1, true},  // Armure
     {25, 4, -1, -1, true}}; // Concentration
 
 int (*defausse)[5] = deck;

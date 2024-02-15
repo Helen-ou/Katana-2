@@ -2,9 +2,9 @@
 
 void echanger_carte(Joueurs *joueurs, int attaquant, int defenseur)
 {
-    // int echange = {attaquant, défenseur} selon id 
+    // Int echange = {attaquant, défenseur} selon id 
     int nb_cartes = 0;
-    // Cherche nombre de cartes
+    // Cherche le nombre de cartes
     for (int i = 0; i < 14; i++)
     {
         if (joueurs[defenseur].cartes[i] > 0)
@@ -13,7 +13,7 @@ void echanger_carte(Joueurs *joueurs, int attaquant, int defenseur)
         }
     }
     int random = rand() % nb_cartes;
-    // Cherche carte à défausser
+    // Cherche la carte à défausser
     int defausser = 0;
     int stock_carte_id;
     for (int i = 0; i < 14; i++)

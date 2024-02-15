@@ -1,10 +1,11 @@
+// Code qui gère la première distribution des cartes
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 int randomise_index(int deck[60][5])
 {
-    // Choose a random element index
+    // Choisis un index a
     int random_Index = rand() % 60;
 
     // Adjust the randomIndex based on the counts in the second field of each sub-array

@@ -16,7 +16,7 @@
 #include "Fonctions/montrer_deck.c"
 #include "Fonctions/valeur_defaut.c"
 #include "Fonctions/defaussecarteid.c"
-
+#include "Fonctions/get_pdv.c"
 
 Joueurs* lancement(int* nombre_joueurs) {
     srand(time(NULL));

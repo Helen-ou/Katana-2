@@ -81,24 +81,11 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
             printf("Note: Veillez à entrer exactement le nom de la carte : CodeDuBushido - AttaqueRapide - Armure - Concentration\n");
             scanf("%s", &carte);
 
-            int id_carte;
-            for (int i = 21; i < 24; i++)
+            if (strcmp(carte, "Armure") == 0)
             {
-                if (strcmp(carte, deck_noms[i]) == 0)
-                {
-                    id_carte = i;
-                    break;
-                }
+                joueurs[k].armure += 1;
+                defausserCarte(joueurs, k, 23);
             }
-            for (int i = 0; i < 14; i++)
-            {
-                if (joueurs[k].carte_perma[i] == 0)
-                {
-                    joueurs[k].carte_perma[i] = id_carte; // Assigne une id de carte
-                    break;
-                }
-            }
-            defausserCarte(joueurs, k, 23);
         }
         else if (option == 3)
         {
@@ -144,7 +131,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
             }
             else if (strcmp(carte, "Jujitsu") == 0)
             {
-                JuJitsu(joueurs, nb_joueurs, k);
+                JuJitsu(joueurs, nb_joueurs, k, deck);
             }
             else if (strcmp(carte, "CeremonieDuThe") == 0)
             {
@@ -162,7 +149,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 scanf("%s", &carte);
 
                 int id_carte;
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < 14; i++)
                 {
                     if (strcmp(carte, deck_noms[i]) == 0)
                     {
@@ -175,10 +162,9 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 printf("Voici les joueurs que vous pouvez attaquez : \n");
                 for (int j = 0; j < nb_joueurs; j++)
                 {
-                    if (joueurs[k].vies != 0 && diff_attaque(joueurs, j, k, nb_joueurs) <= preci_carte && k != j)
+                    if (joueurs[j].vies > 0 && diff_attaque(joueurs, k, j, nb_joueurs) <= preci_carte && k != j)
                     {
-                        int armure_b =diff_attaque(joueurs, j, k, nb_joueurs);
-                        printf("Tu peux attaquer le joueur %s numero %d qui a %d d'armure\n", joueurs[j].nom, j, armure_b);
+                        printf("Tu peux attaquer le joueur %s numero %d.\n", joueurs[j].nom, j);
                     }
                 }
                 printf("Parmis eux, lequel voulez-vous attaquer ? (entrez le numero)\n");

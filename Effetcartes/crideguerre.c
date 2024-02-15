@@ -62,14 +62,14 @@ void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
         printf("%s défausse une parade.\n", joueurs[index].nom);
         if (defausserCarte(joueurs, index, 19) == 1)
         {
-            printf("L'effet de Cri de Guerre à été éxécuté.\n"); // Suppose que l'ID de la parade est 19
+            printf("L'effet de Cri de Guerre à été éxécuté.\n"); // l'ID de la parade est 19
             break;
         }
         else if (defausserCarte(joueurs, index, 19) == 2)
         {
             joueurs[index].vies--;
             printf("%s perd 1 point de vie à cause du Cri de guerre.\n", joueurs[index].nom);
-            break;
+            break; // Si le joueur ne possède pas de parade, il perd automatiquement 1 PV.
         }
         case 2:
             joueurs[index].vies--;
@@ -83,5 +83,5 @@ void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
 
         
     }
-    defausserCarte(joueurs, joueur_actif, 13);
+    defausserCarte(joueurs, joueur_actif, 13); // Défausse la carte Cri de Guerre
 }

@@ -1,11 +1,11 @@
-// Va gérer l'attaque d'un joueur sur un autre
+// Code qui prend en charge le fonctionnement de l'attaque
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "diff_attaque.c"
 
 int attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int position[2])
 {
+    // Définition de la distance entre joueurs
     int parade = 0;
     int distance = diff_attaque(joueurs, position[0], position[1], nb_joueurs);
     if (joueurs[position[1]].vies <= 0)
@@ -13,7 +13,7 @@ int attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int posi
         printf("Le joueur que vous souhaitez attaquer n'a déjà plus de vies !\n");
         return 1;
     }
-    if (precision >= distance)
+    if (precision >= distance) 
     {
         int stop = 0;
         char string[3];
@@ -25,10 +25,10 @@ int attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int posi
             {
                 break;
             }
-            if (joueurs[position[1]].cartes[i] == 18) // Si id carte vaut id 19 pour parade
+            if (joueurs[position[1]].cartes[i] == 18) // L'ID de la carte parade est 18
             {
                 while (1)
-                { // Boucle si joueur ne mets pas une entrée correcte ; parade
+                { // Boucle si joueur ne mets pas une entrée correcte ; Parade
                     printf("%s, souhaitez-vous utiliser votre carte parade ? Rentrez 'oui' ou 'non' : ", joueurs[position[1]].nom);
                     scanf("%s", string);
                     if (strcmp(string, "non") == 0)
@@ -48,7 +48,7 @@ int attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int posi
             }
         }
         if (parade == 0)
-        {
+        {   // Affiche le résultat de l'attaque et calcule la perte de points d'honneur
             printf("%s infligez %d dégats à %s\n", joueurs[position[0]].nom, degat, joueurs[position[1]].nom);
             joueurs[position[1]].vies -= degat;
             if (joueurs[position[1]].vies <= 0)

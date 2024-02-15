@@ -38,15 +38,15 @@ void Diversion(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
         }
     }
     int id_joueur;
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < 7; i++) 
     {
         if (strcmp(joueurs[i].nom, joueur_cible) == 0)
         {
             id_joueur = i;
         }
     }
-    echanger_carte(joueurs, joueur_actif, id_joueur);
-    defausserCarte(joueurs, joueur_actif, 15);
+    echanger_carte(joueurs, joueur_actif, id_joueur); // Echange les deux cartes
+    defausserCarte(joueurs, joueur_actif, 15);  // Défausse la carte Geisha
     printf("L'effet de la carte Diversion à été exécuté !\n");
     
 }

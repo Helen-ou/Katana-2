@@ -8,19 +8,11 @@ int diff_attaque(Joueurs *joueurs, int joueur_a, int joueur_b, int nb_joueur) //
     int temp = 0;
     int temp2 = 0;
     int cas = 0;
-    int armure_utilise = armure(joueurs, joueur_b);
+    int armure = joueurs[joueur_b].armure;
 
     if (nb_joueur == 3)
     {
-        if (armure_utilise == 0)
-        {
-            return 1;
-        }
-        else
-        {
-            return 1 + armure_utilise;
-        }
-        return 1;
+        return 1 + armure;
     }
     else
     {
@@ -45,15 +37,15 @@ int diff_attaque(Joueurs *joueurs, int joueur_a, int joueur_b, int nb_joueur) //
             cas = 2;
         }
 
-        // difficulté d'attaque en prenant en compte la vie des joueurs
+        // Difficulté d'attaque en prenant en compte la vie des joueurs
         int compt;
         if (cas == 1)
         {
 
             for (int compt = joueur_a + 1; compt < joueur_b; compt++)
             {
-                if (true)
-                { // remplacer true par l'équivalent en c de "vie joueur(compt)==0"
+                if (joueurs[compt].vies == 0)
+                { 
                     temp2 = temp2 - 1;
                 }
             }
@@ -62,28 +54,21 @@ int diff_attaque(Joueurs *joueurs, int joueur_a, int joueur_b, int nb_joueur) //
         {
             for (compt = joueur_b + 1; compt < nb_joueur; compt++)
             {
-                if (true)
-                { // remplacer true par l'équivalent en c de "vie joueur(compt)==0"
+                if (joueurs[compt].vies == 0)
+                { 
                     temp2 = temp2 - 1;
                 }
             }
             for (compt = 1; compt < joueur_a; compt++)
             {
-                if (true)
-                { // remplacer true par l'équivalent en c de "vie joueur(compt)==0"
+                if (joueurs[compt].vies == 0)
+                {
                     temp2 = temp2 - 1;
                 }
             }
         }
 
-        if (armure_utilise == 0)
-        {
-            return temp2;
-        }
-        else
-        {
-            return temp2 + armure_utilise;
-        }
+        return temp2 + armure;
         return temp2;
     }
 }

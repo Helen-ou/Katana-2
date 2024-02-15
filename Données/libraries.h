@@ -12,7 +12,7 @@ typedef struct
     int cartes[14];      // Stockes les cartes d'un joueur selon son id
     int points;          // Points à la fin de la partie
     int fin;             // Fin de partie si honneur = 0
-    char personnage[25]; // nom des joueurs
-    int index_perso;     // 
-    int carte_perma[14]; // stock les cartes perma actives du joueur
+    char personnage[25]; // Nom des joueurs
+    int armure;          // Pour carte armure
+    int atta_rapide;     // Pour carte attaque rapide
 } Joueurs;

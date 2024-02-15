@@ -1,6 +1,8 @@
+// Code qui permet de vérifier si le jeu est terminé ou non
 #include <stdio.h>
 #include <stdlib.h>
 
+// Vérifie si un joueur à 0 d'honneur
 int check_honneur(Joueurs *joueurs, int nombre_joueurs)
 {
     for (int i = 0; i < nombre_joueurs; i++)
@@ -13,6 +15,7 @@ int check_honneur(Joueurs *joueurs, int nombre_joueurs)
     return 0;
 }
 
+// Vérifie les points de vie des joueurs
 int check_pv_fin(Joueurs *joueurs, int nombre_joueurs)
 {
     int compteur;
