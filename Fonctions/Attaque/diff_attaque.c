@@ -19,7 +19,7 @@ int diff_attaque(Joueurs *joueurs, int joueur_a, int joueur_b, int nb_joueur) //
         // initialisation de la difficulté sans prise en compte de la vie des joueurs
         if (joueur_a > joueur_b)
         {
-            temp = joueur_b - joueur_b;
+            temp = joueur_a - joueur_b;
         }
         else
         {

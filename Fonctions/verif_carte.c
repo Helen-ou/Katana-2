@@ -1,3 +1,4 @@
+// Code qui va vérifier si un joueur possède une carte 
 #include <stdio.h>
 
 int verif_carte(Joueurs *joueurs, int joueur_actif, char carte_joue[25])

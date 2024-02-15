@@ -6,7 +6,7 @@ void Meditation(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
 {
     // Récupérer tous les points de vie du joueur actuel
     printf("%s utilise la carte Méditation et récupère tous ses points de vie.\n", joueurs[joueur_actif].nom);
-    recup_pdv(joueurs, joueur_actif);
+    joueurs[joueur_actif].vies = recup_pdv(joueurs, joueur_actif);
     // Choisir un autre joueur pour piocher une carte
     printf("Choisissez un autre joueur pour piocher une carte :\n");
     for (int i = 0; i < nombre_joueurs; i++)
@@ -29,7 +29,7 @@ void Meditation(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
     }
 
     // Piocher une carte pour le joueur cible
-    distribution(joueurs, joueurCible, deck, 1);
+    distribution(joueurs, joueurCible, 1, nombre_joueurs);
 
     printf("Le joueur %s pioche une carte.\n", joueurs[joueurCible].nom);
     printf("L'effet de Méditation à été éxécuté.\n");

@@ -1,7 +1,9 @@
+// Code qui gère la phase 3, phase de jeu des joueurs.
 #include <stdio.h>
 
 #include "../Fonctions/Attaque/echanger_carte.c"
 #include "../Effetcartes/armure.c"
+#include "../Effetcartes/attaque_rapide.c"
 #include "../Fonctions/verif_deck.c"
 #include "../Fonctions/Attaque/Attaque.c"
 #include "../Fonctions/verif_carte.c"
@@ -12,39 +14,52 @@
 #include "../Effetcartes/geisha.c"
 #include "../Effetcartes/jujitsu.c"
 #include "../Effetcartes/meditation.c"
+#include "../Effetcartes/codedubushido.c"
 
-void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
-{                                                     // a voir quel parametre prend la fonction
-    // -> montrer ici le deck avec la fonction montrer_deck()
+void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // K correspond au joueur actif
+{
 
-    afficherCartes(joueurs, k);
-
-    bool atta_jouer = false; // set up variable bool atta_jouer = False pour verif si une carte attaque a été utilisé (False si pas encore, True si utilisé)
+    bool atta_jouer = false; // Met en place la variable bool atta_jouer = false qui vérifie si une carte d'attaque à déjà été utilisée
     bool jouer_carte = true;
     char carte[25];
     int option;
+    int compteur_attaque = 0;
     do
-    { // boucle do while pour jouer tant que bool jouer_carte == True
+    { // Boucle do while pour jouer tant que bool jouer_carte == true
+
+        afficherCartes(joueurs, k); // Affiche les cartes jouables du joueurs
 
         option = 0;
 
-        // -> proposer l'arret de son tour avec option 1
+        // Propose l'arrêt de son tour avec l'option 1
         printf("Si vous ne voulez pas ou plus jouer de carte, entrez 1\n");
         if (atta_jouer == false)
         {
             if (verif_deck_perma(joueurs, k) == true)
             {
-                // -> Proposer option jouer une carte perma avec option 2
+                // Propose l'option jouer une carte permanante avec l'option 2
                 printf("Si vous voulez jouer une carte permanente, entrez 2\n");
+            }
+            else
+            {
+                printf("Vous n'avez pas de carte permanentes dans votre deck !\n");
             }
             if (verif_deck_act(joueurs, k) == true)
             {
-                // -> Proposer option jouer une carte action avec option 3
+                // Propose l'option jouer une carte action avec l'option 3
                 printf("Si vous voulez jouer une carte d'action, entrez 3\n");
+            }
+            else
+            {
+                printf("Vous n'avez pas de carte actions dans votre deck !\n");
             }
             if (verif_deck_atta(joueurs, k) == true)
             {
                 printf("Si vous voulez jouer une carte d'attaque, entrez 4\n");
+            }
+            else
+            {
+                printf("Vous n'avez pas de carte attaques dans votre deck !\n");
             }
             printf("Quelle action souhaitez vous faire ? \n");
             scanf("%d", &option);
@@ -52,20 +67,25 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
         else
         {
 
-            // bool CarteConcentration = Concentration(joueurs, k);
-            // if (CarteConcentration) {
-            // printf("Si vous voulez joruer rejouer une carte attaque, entrez 1\n");
-            //  }
             if (verif_deck_perma(joueurs, k) == true)
             {
-                // -> Proposer option jouer une carte perma avec option 2
+                // Propose option jouer une carte permanante avec l'option 2
                 printf("Si vous voulez jouer une carte permanente, entrez 2\n");
+            }
+            else
+            {
+                printf("Vous n'avez pas de carte permanentes dans votre deck !\n");
             }
             if (verif_deck_act(joueurs, k) == true)
             {
-                // -> Proposer option jouer une carte act avec option 3
+                // Propose option jouer une carte action avec option 3
             }
-            printf("Quelle action souhaitez vous faire ? \n");
+            else
+            {
+                printf("Vous n'avez pas de carte actions dans votre deck !\n");
+            }
+            printf("Vous ne pouvez plus jouer de carte action \n");
+                printf("Quelle action souhaitez vous faire ? \n");
             scanf("%d", &option);
         }
 
@@ -75,7 +95,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
         }
         else if (option == 2)
         {
-            //-> lister ses carte perma et demander laquelle il veut jouer ->carte_a_jouer + proposition de retour en arriere
+            // Liste les carte permanantes et demande laquelle doit être jouée
             afficherCartesPerma(joueurs, k);
             printf("Entrez le nom de la carte que vous voulez jouer :\n");
             printf("Note: Veillez à entrer exactement le nom de la carte : CodeDuBushido - AttaqueRapide - Armure - Concentration\n");
@@ -86,10 +106,28 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 joueurs[k].armure += 1;
                 defausserCarte(joueurs, k, 23);
             }
+
+            if (strcmp(carte, "AttaqueRapide") == 0)
+            {
+                joueurs[k].attaque_rapide += 1;
+                defausserCarte(joueurs, k, 21);
+            }
+
+            if (strcmp(carte, "Concentration") == 0)
+            {
+                joueurs[k].concentration += 1;
+                defausserCarte(joueurs, k, 24);
+            }
+
+            if (strcmp(carte, "CodeDuBushido") == 0)
+            {
+                CodeDuBushido(joueurs, nb_joueurs, k);
+                defausserCarte(joueurs, k, 22);
+            }
         }
         else if (option == 3)
         {
-            //-> lister ses carte action et demander laquelle il veut jouer->carte_a_jouer + proposition de retour en arrière
+            // Liste les carte action et demande laquelle jouer
             afficherCartesActions(joueurs, k);
             char carte[25];
             while (1)
@@ -109,13 +147,13 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 }
             }
             printf("Voici la valeur de carte : %s\n", carte);
-            if (strcmp(carte, "CriDeGuerre") == 0) // Vérifie si la carte que souhaite jouer le joueur r
+            if (strcmp(carte, "CriDeGuerre") == 0)
             {
                 CriDeGuerre(joueurs, nb_joueurs, k);
             }
             else if (strcmp(carte, "Daimyo") == 0)
             {
-                Daimyo(joueurs, k, deck);
+                Daimyo(joueurs, k, deck, nb_joueurs);
             }
             else if (strcmp(carte, "Diversion") == 0)
             {
@@ -142,7 +180,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
         {
             if (atta_jouer == false)
             {
-                // -> lister ses cartes actions et demander laquelle il veut jouer->carte_a_jouer + proposition de retour en arrière
+                // Liste les cartes attaque et demande laquelle jouer
                 afficherCartesAttaques(joueurs, k);
                 printf("Entrez le nom de la carte que vous voulez jouer :\n");
                 char carte[25];
@@ -159,7 +197,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 int preci_carte = deck[id_carte][2];
                 int degat_carte = deck[id_carte][3];
 
-                printf("Voici les joueurs que vous pouvez attaquez : \n");
+                // Code de gestion de l'attaque
                 for (int j = 0; j < nb_joueurs; j++)
                 {
                     if (joueurs[j].vies > 0 && diff_attaque(joueurs, k, j, nb_joueurs) <= preci_carte && k != j)
@@ -172,10 +210,21 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 scanf("%d", &j_visé);
                 int pers[2] = {k, j_visé};
                 int atta_annule = attaque(joueurs, preci_carte, degat_carte, nb_joueurs, pers);
-                // si pas de retour en arrière :
+
                 if (atta_annule == 0)
                 {
-                    atta_jouer = true;
+                    if (joueurs[k].concentration == 0)
+                    {
+                        atta_jouer = true;
+                    }
+                    else
+                    {
+                        compteur_attaque += 1;
+                        if (compteur_attaque < joueurs[k].concentration)
+                        {
+                            atta_jouer = true;
+                        }
+                    }
                 }
             }
             else

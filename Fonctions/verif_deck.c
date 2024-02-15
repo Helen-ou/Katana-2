@@ -1,6 +1,8 @@
-// Crée trois fonction "bool verif_deck_perma()", "bool verif_deck_atta()", "bool verif_deck_act()" qui verif si le deck contient des cartes perma, d'attaques, d'action
-// Renvoie True si carte persente, renvoie False si ce n'est pas le cas
+// Crée trois fonctions "bool verif_deck_perma()", "bool verif_deck_atta()", "bool verif_deck_act()" 
+// Qui vérifient si le deck contient des cartes permanantes, d'attaques, et d'action.
+// Renvoie true si la carte est présente, renvoie False si ce n'est pas le cas.
 
+// Vérifie si le deck contient des cartes permanante
 bool verif_deck_perma(Joueurs *joueurs, int k)
 {
     bool avoir_carte_perma = false;
@@ -21,6 +23,7 @@ bool verif_deck_perma(Joueurs *joueurs, int k)
     return avoir_carte_perma;
 }
 
+// Vérifie si le deck contient des cartes d'action
 bool verif_deck_act(Joueurs *joueurs, int k)
 {
     bool avoir_carte_act = false;
@@ -41,6 +44,7 @@ bool verif_deck_act(Joueurs *joueurs, int k)
     return avoir_carte_act;
 }
 
+// Vérifie si le deck contient des cartes d'attaque
 bool verif_deck_atta(Joueurs *joueurs, int k)
 {
     bool avoir_carte_atta = false;

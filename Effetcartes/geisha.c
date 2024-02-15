@@ -18,30 +18,37 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
     {
         // Les cartes permanentes ont des IDs de 21 à 24
         printf("%s choisit de défausser une carte permanente en jeu.\n", joueurs[joueur_actif].nom);
-        int cartes_perma_possedes[15];
-        int compteur = 0;
-        // On cherche les cartes du joueur
-        for (int i = 0; i < 14; i++)
+
+        // vérifie si le joueurs a une carte perma activé, si ce n'est pas le cas, le code passe au cas n°2
+        if (joueurs[joueur_actif].armure == 1 && joueurs[joueur_actif].attaque_rapide == 0 && joueurs[joueur_actif].concentration == 0)
         {
-            if (joueurs[joueur_actif].cartes[i] > 0)
-            {
-                cartes_perma_possedes[compteur] = i;
-                compteur += 1;
-            }
-        }
-        // On cherche une carte random
-        if (compteur > 0)
-        {
-            int random = rand() % compteur;
-            joueurs[joueur_actif].cartes[cartes_perma_possedes[random]] = -1;
-            return;
+            printf("Aucune carte permanente en jeu dans la main de %s.\n", joueurs[joueur_actif].nom);
         }
         else
         {
-            printf("Aucune carte permanente en jeu dans la main de %s.\n", joueurs[joueur_actif].nom);
+            int perma_enleve = 0;
+            do
+            {
+                int random = rand() % 3;
+                if (random == 0 && joueurs[joueur_actif].armure > 0) // armure
+                {
+                    joueurs[joueur_actif].armure -= 1;
+                    perma_enleve = 1;
+                }
+                else if (random == 0 && joueurs[joueur_actif].attaque_rapide > 0) // attaque_rapide
+                {
+                    joueurs[joueur_actif].attaque_rapide -= 1;
+                    perma_enleve = 1;
+                }
+                else if (random == 0 && joueurs[joueur_actif].concentration > 0) // concentration
+                {
+                    joueurs[joueur_actif].concentration -= 1;
+                    perma_enleve = 1;
+                }
+
+            } while (perma_enleve == 0);
             return;
         }
-    }
     case 2:
     {
         // Piocher une carte au hasard d'un autre joueur
@@ -93,5 +100,6 @@ void Geisha(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
     default:
         printf("Choix invalide.\n");
     }
-    printf("L'effet de Geisha à été éxécuté.\n");
+        printf("L'effet de Geisha à été éxécuté.\n");
+    }
 }

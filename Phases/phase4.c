@@ -1,3 +1,4 @@
+// Code de gestion de la phase 4, la phase de défausse
 #include <stdio.h>
 
 void phase_4(Joueurs *joueurs, int k) // Reitère pour chaque joueur qui joue
@@ -29,7 +30,7 @@ void phase_4(Joueurs *joueurs, int k) // Reitère pour chaque joueur qui joue
         }
 
         int choix;
-        int doublon[15]; // éviter que la même carte soit retirée 2 fois
+        int doublon[15]; // Pour éviter que la même carte soit retirée 2 fois
         do
         {
             do

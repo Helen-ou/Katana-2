@@ -14,5 +14,7 @@ typedef struct
     int fin;             // Fin de partie si honneur = 0
     char personnage[25]; // Nom des joueurs
     int armure;          // Pour carte armure
-    int atta_rapide;     // Pour carte attaque rapide
+    int attaque_rapide;  // Pour carte attaque rapide
+    int concentration;   // Pour carte concentration
+    bool code_bushido;   // Indique si le joueur a la carte "Code du bushido" en jeu devant lui
 } Joueurs;

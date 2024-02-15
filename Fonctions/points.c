@@ -1,3 +1,4 @@
+// Code qui gère le calcul final des points
 #include <stdio.h>
 
 void point_calcul(Joueurs *joueurs, int nb_joueurs)
@@ -37,7 +38,7 @@ void point_calcul(Joueurs *joueurs, int nb_joueurs)
     }
     // Afficher l'équipe victorieuse et les points
     int tableau_trie[4][2];     // {points_max, id_max}
-    for (int i = 0; i < 4; i++) // tri
+    for (int i = 0; i < 4; i++) // Tri des cartes
     {
         int points_max = 0;
         int id_max = 0;
@@ -53,7 +54,7 @@ void point_calcul(Joueurs *joueurs, int nb_joueurs)
         tableau_trie[i][1] = id_max;
         points_factions[id_max] = -100;
     }
-
+    // Affichage des résultats
     printf("La faction gagnante est %s avec %d points, félicitations !\n", nom_factions[tableau_trie[0][1]], tableau_trie[0][0]);
     printf("La deuxième faction est %s avec %d points, félicitations !\n", nom_factions[tableau_trie[1][1]], tableau_trie[1][0]);
     if (nb_joueurs > 3)

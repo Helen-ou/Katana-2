@@ -10,5 +10,5 @@ int attaque_rapide(Joueurs *joueurs, int j_visé)
         }
     }
     printf("La carte AttaqueRapide a bien été jouée et a rajouté %d de puissance d'attaque\n", nb_carte_attaque);
-    return nb_carte_attaque // TODO "nb_carte_attaque" à mettre à la place du 0 à la fin.
+    return nb_carte_attaque; // TODO "nb_carte_attaque" à mettre à la place du 0 à la fin.
 }

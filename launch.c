@@ -4,7 +4,8 @@
 #include <string.h>
 #include <time.h>
 
-#include "Données/libraries.h" // les structures
+#include "ascii.c"
+#include "Données/libraries.h" // Contient les structures
 #include "Fonctions/nb_joueurs.c"
 #include "Données/tableaux.c"
 #include "Fonctions/positions.c"
@@ -17,9 +18,12 @@
 #include "Fonctions/valeur_defaut.c"
 #include "Fonctions/defaussecarteid.c"
 #include "Fonctions/get_pdv.c"
+#include "Fonctions/shogun_begin.c"
+
 
 Joueurs* lancement(int* nombre_joueurs) {
     srand(time(NULL));
+    ascii();    // Fonction ascii art
     printf("Bienvenue sur Katana le jeu de cartes !\n");
     *nombre_joueurs = nb_joueurs();
     int random;
@@ -38,10 +42,6 @@ Joueurs* lancement(int* nombre_joueurs) {
     // Demande et attribue les noms et classes aux joueurs
     assignerNomEtClasse(joueurs, *nombre_joueurs, classes);
     attribuerPersonnage(joueurs, *nombre_joueurs, cartes_personnage, nom_cartes_personnages);
-
-    printf("La classe du joueur %d est %d\n", 1, joueurs[0].classe);
-    printf("La classe du joueur %d est %d\n", 2, joueurs[1].classe);
-    printf("La classe du joueur %d est %d\n", 3, joueurs[2].classe);
     printf("Nous allons pouvoir commencer la distribution des cartes !\n");
     modif_valeur_defaut(joueurs, *nombre_joueurs);
     pioche_tour1(joueurs, *nombre_joueurs);

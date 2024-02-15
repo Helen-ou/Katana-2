@@ -49,6 +49,7 @@ int attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int posi
         }
         if (parade == 0)
         {   // Affiche le résultat de l'attaque et calcule la perte de points d'honneur
+            int bonus_attaque = attaque_rapide(joueurs, position[1]);
             printf("%s infligez %d dégats à %s\n", joueurs[position[0]].nom, degat, joueurs[position[1]].nom);
             joueurs[position[1]].vies -= degat;
             if (joueurs[position[1]].vies <= 0)

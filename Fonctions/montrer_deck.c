@@ -1,5 +1,7 @@
+// Code permetant d'afficher les différentes cartes de manière séparées
 #include <stdio.h>
 
+// Affiche toute les cartes d'un joueur en particulier
 void afficherCartes(Joueurs *joueurs, int k)
 {
     for (int i = 0; i < 14; i++)
@@ -16,6 +18,7 @@ void afficherCartes(Joueurs *joueurs, int k)
     }
 }
 
+// Affiche toute les cartes permanantes d'un joueur
 void afficherCartesPerma(Joueurs *joueurs, int k)
 {
     for (int i = 0; i < 14; i++)
@@ -35,6 +38,7 @@ void afficherCartesPerma(Joueurs *joueurs, int k)
     }
 }
 
+// Affiche toute les cartes d'action d'un joueur
 void afficherCartesActions(Joueurs *joueurs, int k)
 {
     for (int i = 0; i < 14; i++)
@@ -54,6 +58,7 @@ void afficherCartesActions(Joueurs *joueurs, int k)
     }
 }
 
+// Affiche toute les cartes d'attaque d'un joueur
 void afficherCartesAttaques(Joueurs *joueurs, int k)
 {
     for (int i = 0; i < 14; i++)

@@ -43,6 +43,6 @@ void assignerNomEtClasse(Joueurs *joueurs, int nombre_joueurs, int classes[][4])
     // Mettre armure à valeur par défaut
     for (int i = 0; i < nombre_joueurs; i++)
     {
-        joueurs[i].armure = 1;
+        joueurs[i].armure = 0;
     }
 }

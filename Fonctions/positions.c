@@ -1,3 +1,4 @@
+// Code qui va gérer la position des joueurs
 #include <stdio.h>
 
 void return_pos(int nombre_joueurs, int* pos) {

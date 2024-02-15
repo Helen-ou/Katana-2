@@ -10,5 +10,5 @@ int armure(Joueurs *joueurs, int j_visé)
         }
     }
     printf("La carte armure a bien été jouée et a rajouté %d armure\n", nb_carte_armure);
-    return nb_carte_armure; // TODO "nb_carte_armure" à mettre à la place du 0 à la fin.
+    return nb_carte_armure; 
 }

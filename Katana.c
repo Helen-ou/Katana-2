@@ -11,11 +11,11 @@ int main()
 {
     int nombre_joueurs;
     Joueurs *joueurs = lancement(&nombre_joueurs); // Fonction de launch.c qui lance le jeu
-    int joueur_actif;
+    int joueur_actif = shogun_commence(joueurs);    // Commencer au shogun    
     while (1) // Boucle principale du jeu
     {
         phase_1(joueurs, nombre_joueurs, joueur_actif);
-        phase_2(joueurs, joueur_actif);
+        phase_2(joueurs, joueur_actif, nombre_joueurs);
         phase_3(joueurs, joueur_actif, nombre_joueurs);
         int fin = routine(joueurs, nombre_joueurs);
         if (fin == 1)
