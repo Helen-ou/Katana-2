@@ -9,7 +9,7 @@ void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
     int arme_existe = 0;
     for (int i = 0; i < nombre_joueurs; i++)
     {
-        if (i != joueur_actif)
+        if (i != joueur_actif && joueurs[i].vies > 0)
         {
             while (1)
             {
