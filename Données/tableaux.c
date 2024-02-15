@@ -14,7 +14,7 @@ int classes[][4] = {
 // ID, quantité, portée, attaque, permanente
 int deck[25][5] = {
     // Définition des armes
-    {1, 1000, 3, 3000, false},  // Nodachi
+    {1, 1, 3, 3, false},  // Nodachi
     {2, 1, 4, 2, false},  // Nagayari
     {3, 1, 5, 1, false},  // Tanegashima
     {4, 1, 5, 3, false},  // Daikyu

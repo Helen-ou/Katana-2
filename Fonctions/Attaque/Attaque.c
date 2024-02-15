@@ -4,14 +4,14 @@
 
 #include "diff_attaque.c"
 
-void attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int position[2])
+int attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int position[2])
 {
     int parade = 0;
     int distance = diff_attaque(joueurs, position[0], position[1], nb_joueurs);
     if (joueurs[position[1]].vies <= 0)
     {
         printf("Le joueur que vous souhaitez attaquer n'a déjà plus de vies !\n");
-        return;
+        return 1;
     }
     if (precision >= distance)
     {
@@ -41,9 +41,9 @@ void attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int pos
                         printf("\n Votre carte parade annule tout vos dégats\n");
                         joueurs[position[1]].cartes[i] = -1;
                         parade = 1;
-                        return;
+                        return 0;
                     }
-                    printf("Veuillez écrire soit 'oui' soit 'non'.\n" );
+                    printf("Veuillez écrire soit 'oui' soit 'non'.\n");
                 }
             }
         }
@@ -51,7 +51,13 @@ void attaque(Joueurs *joueurs, int precision, int degat, int nb_joueurs, int pos
         {
             printf("%s infligez %d dégats à %s\n", joueurs[position[0]].nom, degat, joueurs[position[1]].nom);
             joueurs[position[1]].vies -= degat;
-            return;
+            if (joueurs[position[1]].vies <= 0)
+            {
+                joueurs[position[1]].honneur -= 1;
+                joueurs[position[0]].honneur += 1;
+            }
+            return 0;
         }
     }
+    return 0;
 }

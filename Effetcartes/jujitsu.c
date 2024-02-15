@@ -47,7 +47,7 @@ void JuJitsu(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
                 }
                 int arme_defausse;
                 while (1)
-                { // Question zrme à défausser
+                { // Question arme à défausser
                     printf("Choisissez quelle arme vous souhaitez défausser (1-%d)", compteur);
                     scanf("%d", arme_defausse);
                     if (arme_defausse > compteur || arme_defausse < 0)

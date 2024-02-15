@@ -37,17 +37,11 @@ Joueurs* lancement(int* nombre_joueurs) {
     assignerNomEtClasse(joueurs, *nombre_joueurs, classes);
     attribuerPersonnage(joueurs, *nombre_joueurs, cartes_personnage, nom_cartes_personnages);
 
+    printf("La classe du joueur %d est %d\n", 1, joueurs[0].classe);
+    printf("La classe du joueur %d est %d\n", 2, joueurs[1].classe);
+    printf("La classe du joueur %d est %d\n", 3, joueurs[2].classe);
     printf("Nous allons pouvoir commencer la distribution des cartes !\n");
     modif_valeur_defaut(joueurs, *nombre_joueurs);
     pioche_tour1(joueurs, *nombre_joueurs);
-    printf("%s va commencer ! \n", joueurs[0].nom);
-    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[0]);
-    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[1]);
-    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[2]);
-    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[3]);
-    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[4]);
-    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[5]);
-    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[6]);
-    printf("%s possède la carte d'id %d\n", joueurs[0].nom, joueurs[0].cartes[7]);
     return joueurs;
 }

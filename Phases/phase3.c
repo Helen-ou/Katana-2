@@ -3,7 +3,6 @@
 
 #include "../Fonctions/Attaque/echanger_carte.c"
 #include "../Effetcartes/armure.c"
-#include "../Fonctions/defaussecarteid.c"
 #include "../Fonctions/verif_deck.c"
 #include "../Fonctions/Attaque/Attaque.c"
 #include "../Fonctions/verif_carte.c"
@@ -175,9 +174,12 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 int j_visé;
                 scanf("%d", &j_visé);
                 int pers[2] = {k, j_visé};
-                attaque(joueurs, preci_carte, degat_carte, nb_joueurs, pers);
+                int atta_annule = attaque(joueurs, preci_carte, degat_carte, nb_joueurs, pers);
                 // si pas de retour en arrière :
+                if(atta_annule==0)
+                {
                 atta_jouer = true;
+                }
             }
             else
             {

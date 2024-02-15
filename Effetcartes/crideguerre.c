@@ -44,7 +44,7 @@ void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs)
     {
     case 1:
         printf("%s défausse une parade.\n", joueurs[index].nom);
-        defausserCarte(joueurs, index, 19); // Suppose que l'ID de la parade est 19
+        // defausserCarte(joueurs, index, 19); // Suppose que l'ID de la parade est 19
         break;
     case 2:
         joueurs[index].vies--;

@@ -8,6 +8,7 @@
 
 int routine(Joueurs *joueurs, int nombre_joueurs)
 {
+
     int fin = 0;
     fin += check_honneur(joueurs, nombre_joueurs);
     printf("Fin vaut %d\n", fin);
