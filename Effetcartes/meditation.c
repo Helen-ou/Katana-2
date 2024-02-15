@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 void Meditation(Joueurs *joueurs, int nombre_joueurs, int joueur_actif) {
     // Récupérer tous les points de vie du joueur actuel
     printf("%s utilise la carte Méditation et récupère tous ses points de vie.\n", joueurs[joueur_actif].nom);
@@ -16,14 +19,13 @@ void Meditation(Joueurs *joueurs, int nombre_joueurs, int joueur_actif) {
     joueurCible--;
 
     // Vérifier si le choix du joueur cible est valide
-    if (joueurCible < 0 || joueurCible >= nombre_joueurs || joueurCible == joueur_actif) {
+    if (joueurCible < 0 || joueurCible > nombre_joueurs || joueurCible == joueur_actif) {
         printf("Choix invalide.\n");
         return;
     }
 
     // Piocher une carte pour le joueur cible
-    int carteChoisie = rand() % 7; 
-    joueurs[joueurCible].cartes[carteChoisie] = rand() % 25; // Supposons que le deck a 25 cartes au maximum
+    distribution(joueurs, joueurCible, deck, 1);
 
     printf("Le joueur %s pioche une carte.\n", joueurs[joueurCible].nom);
     printf("L'effet de Méditation à été éxécuté.\n");

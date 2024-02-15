@@ -28,22 +28,22 @@ int deck[25][5] = {
     {12, 5, 1, 1, false}, // Bokken
     {13, 5, 1, 2, false}, // Kiseru
     // Définition des cartes spéciales
-    {14, 1, -1, -1, false},  // CriDeGuerre
+    {14, 1,  -1, -1, false},  // CriDeGuerre
     {15, 1, -1, -1, false},  // Daimyo
     {16, 1, -1, -1, false},  // Diversion
     {17, 1, -1, -1, false},  // Geisha
     {18, 1, -1, -1, false},  // Méditation
-    {19, 20, -1, -1, false}, // Parade
+    {19, 2, -1, -1, false}, // Parade
     {20, 4, -1, -1, false},  // CérémonieDuThé
     {21, 3, -1, -1, false},  // Jujitsu
     // Définition des cartes permanentes
     {22, 4, -1, -1, true},  // AttaqueRapide
     {23, 2, -1, -1, true},  // CodeDuBushido
-    {24, 4, -1, -1, true},  // Armure
+    {24, 40, -1, -1, true},  // Armure
     {25, 4, -1, -1, true}}; // Concentration
 
 int (*defausse)[5] = deck;
 
 char deck_noms[60][50] = {"Nodachi", "Nagayari", "Tanegashima", "Daikyu", "Katana", "Kanabo", "Wakizashi", "Naginata",
-                          "Bo", "Kusarigama", "Shuriken", "Bokken", "Kiseru", "CriDeGuerre", "Daimyo", "Diversion", "Geisha", "Méditation",
+                          "Bo", "Kusarigama", "Shuriken", "Bokken", "Kiseru", "CriDeGuerre", "Daimyo", "Diversion", "Geisha", "Meditation",
                           "Parade", "CérémonieDuThé", "Jujitsu", "AttaqueRapide", "CodeDuBushido", "Armure", "Concentration"};

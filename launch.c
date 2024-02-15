@@ -15,6 +15,8 @@
 #include "Fonctions/piochercarte.c"
 #include "Fonctions/montrer_deck.c"
 #include "Fonctions/valeur_defaut.c"
+#include "Fonctions/defaussecarteid.c"
+
 
 Joueurs* lancement(int* nombre_joueurs) {
     srand(time(NULL));

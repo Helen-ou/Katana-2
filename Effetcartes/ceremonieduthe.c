@@ -5,7 +5,8 @@ void CeremonieDuThe(Joueurs *joueurs, int nombre_joueurs, int k, int deck[60][5]
     {
         if (i != k)
         {
-            distribution(joueurs, k, deck, 1);
+            distribution(joueurs, i, deck, 1);
         }
     }
+    printf("L'effet de lamcarte Ceremonie du thé à été effectué");
 }

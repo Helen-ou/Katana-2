@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 // Définition de la fonction Geisha
@@ -18,7 +19,7 @@ void Diversion(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
     int joueur_valide = 0;
     while (1)
     {
-        printf("Rentrez le nom du joueur que vous souhaitez cibler : ");
+        printf("Rentrez le nom du joueur que vous souhaitez cibler et échanger de cartes avec : ");
         scanf("%s", &joueur_cible);
         for (int i = 0; i < nombre_joueurs; i++)
         {
@@ -45,4 +46,7 @@ void Diversion(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
         }
     }
     echanger_carte(joueurs, joueur_actif, id_joueur);
+    defausserCarte(joueurs, joueur_actif, 15);
+    printf("L'effet de la carte Diversion à été exécuté !\n");
+    
 }

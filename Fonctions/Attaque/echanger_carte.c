@@ -35,6 +35,7 @@ void echanger_carte(Joueurs *joueurs, int attaquant, int defenseur)
         if (joueurs[attaquant].cartes[i] < 0)
         {
             joueurs[attaquant].cartes[i] = stock_carte_id;
+            break;
         }
     }
 }

@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 #include "../Fonctions/Attaque/echanger_carte.c"
 #include "../Effetcartes/armure.c"
 #include "../Fonctions/verif_deck.c"
@@ -88,18 +87,29 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 if (strcmp(carte, deck_noms[i]) == 0)
                 {
                     id_carte = i;
+                    break;
                 }
             }
+            for (int i = 0; i < 14; i++)
+            {
+                if (joueurs[k].carte_perma[i] == 0)
+                {
+                    joueurs[k].carte_perma[i] = id_carte; // Assigne une id de carte
+                    break;
+                }
+            }
+            defausserCarte(joueurs, k, 23);
         }
         else if (option == 3)
         {
             //-> lister ses carte action et demander laquelle il veut jouer->carte_a_jouer + proposition de retour en arrière
             afficherCartesActions(joueurs, k);
+            char carte[25];
             while (1)
             {
+
                 printf("Entrez le nom de la carte que vous voulez jouer :\n");
                 printf("Note: Veillez à entrer exactement le nom de la carte : CrideGuerre - Daimyo - Diversion - Geisha - Meditation - Jujitsu - CeremonieDuThe - STOP\n");
-                char carte[25];
                 scanf("%s", &carte);
                 if (verif_carte(joueurs, k, carte) == 1 || strcmp(carte, "STOP") == 0) // Vérifie que le joueur à bien la carte dans son deck
                 {
@@ -111,10 +121,10 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                     continue;
                 }
             }
-
+            printf("Voici la valeur de carte : %s\n", carte);
             if (strcmp(carte, "CriDeGuerre") == 0) // Vérifie si la carte que souhaite jouer le joueur r
             {
-                CriDeGuerre(joueurs, nb_joueurs);
+                CriDeGuerre(joueurs, nb_joueurs, k);
             }
             else if (strcmp(carte, "Daimyo") == 0)
             {
@@ -167,7 +177,8 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 {
                     if (joueurs[k].vies != 0 && diff_attaque(joueurs, j, k, nb_joueurs) <= preci_carte && k != j)
                     {
-                        printf("Tu peux attaquer le joueur %s numero %d\n", joueurs[j].nom, j);
+                        int armure_b =diff_attaque(joueurs, j, k, nb_joueurs);
+                        printf("Tu peux attaquer le joueur %s numero %d qui a %d d'armure\n", joueurs[j].nom, j, armure_b);
                     }
                 }
                 printf("Parmis eux, lequel voulez-vous attaquer ? (entrez le numero)\n");
@@ -175,10 +186,10 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // k est le joueur actif
                 scanf("%d", &j_visé);
                 int pers[2] = {k, j_visé};
                 int atta_annule = attaque(joueurs, preci_carte, degat_carte, nb_joueurs, pers);
-               // si pas de retour en arrière :
-                if(atta_annule==0)
+                // si pas de retour en arrière :
+                if (atta_annule == 0)
                 {
-                atta_jouer = true;
+                    atta_jouer = true;
                 }
             }
             else

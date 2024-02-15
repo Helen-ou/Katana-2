@@ -1,14 +1,18 @@
 // Définition de la fonction CriDeGuerre
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs)
+void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs, int joueur_actif)
 {
     // Afficher les joueurs disponibles
     printf("Joueurs disponibles :\n");
     for (int i = 0; i < nombre_joueurs; i++)
     {
-        printf("%d. %s\n", i + 1, joueurs[i].nom);
+        if (i != joueur_actif && joueurs[i].vies > 0)
+        {
+            printf("%d. %s\n", i + 1, joueurs[i].nom);
+        }
     }
 
     // Demander au joueur de choisir le joueur affecté
@@ -34,14 +38,15 @@ void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs)
     }
 
     // Demande au joueur s'il veut défausser une parade ou perdre un point de vie
+
+    int choixAction;
     while (1)
     {
         printf("%s, vous devez défausser une parade ou perdre 1 point de vie.\n", joueurs[index].nom);
         printf("1. Défausser une parade\n");
         printf("2. Perdre 1 point de vie\n");
-        int choixAction;
         scanf("%d", &choixAction);
-        if (strcmp((choixAction, "1") == 0) || (strcmp(choixAction, "2"), == 0))
+        if (choixAction == 1 || choixAction == 2)
         {
             break;
         }
@@ -55,20 +60,28 @@ void CriDeGuerre(Joueurs *joueurs, int nombre_joueurs)
     {
     case 1:
         printf("%s défausse une parade.\n", joueurs[index].nom);
-        defausserCarte(joueurs, index, 19); // Suppose que l'ID de la parade est 19
-        break;
-        printf("L'effet de Cri de Guerre à été éxécuté.\n");
-    case 2:
-        joueurs[index].vies--;
-        printf("%s perd 1 point de vie à cause du Cri de guerre.\n", joueurs[index].nom);
-        if (joueurs[index].vies <= 0)
+        if (defausserCarte(joueurs, index, 19) == 1)
         {
-            printf("%s a été vaincu.\n", joueurs[index].nom);
+            printf("L'effet de Cri de Guerre à été éxécuté.\n"); // Suppose que l'ID de la parade est 19
+            break;
         }
-        printf("L'effet de Cri de Guerre à été éxécuté.\n");
-        break;
+        else if (defausserCarte(joueurs, index, 19) == 2)
+        {
+            joueurs[index].vies--;
+            printf("%s perd 1 point de vie à cause du Cri de guerre.\n", joueurs[index].nom);
+            break;
+        }
+        case 2:
+            joueurs[index].vies--;
+            printf("%s perd 1 point de vie à cause du Cri de guerre.\n", joueurs[index].nom);
+            if (joueurs[index].vies <= 0)
+            {
+                printf("%s a été vaincu.\n", joueurs[index].nom);
+            }
+            printf("L'effet de Cri de Guerre à été éxécuté.\n");
+            break;
 
-    default:
-        printf("Choix invalide.\n");
+        
     }
+    defausserCarte(joueurs, joueur_actif, 13);
 }
