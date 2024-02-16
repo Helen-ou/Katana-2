@@ -32,7 +32,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // K correspond au joueur 
         option = 0;
 
         // Propose l'arrêt de son tour avec l'option 1
-        printf("Si vous ne voulez pas ou plus jouer de carte, entrez 1\n");
+        printf("\nSi vous ne voulez pas ou plus jouer de carte, entrez 1\n");
         if (atta_jouer == false)
         {
             if (verif_deck_perma(joueurs, k) == true)
@@ -59,10 +59,11 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // K correspond au joueur 
             }
             else
             {
-                printf("Vous n'avez pas de carte attaques dans votre deck !\n");
+                printf("Vous n'avez pas de carte attaque dans votre deck !\n");
             }
             printf("Quelle action souhaitez vous faire ? \n");
             scanf("%d", &option);
+            printf("\n");
         }
         else
         {
@@ -78,7 +79,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // K correspond au joueur 
             }
             if (verif_deck_act(joueurs, k) == true)
             {
-                // Propose option jouer une carte action avec option 3
+                printf("Si vous voulez jouer une carte action, entrez 3\n");
             }
             else
             {

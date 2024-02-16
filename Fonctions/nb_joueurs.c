@@ -24,6 +24,5 @@ int nb_joueurs()
             printf("Le nombre de joueurs n'est pas valide !\n");
         }
     }
-        return nombre;
-    
+    return nombre;
 }

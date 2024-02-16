@@ -41,6 +41,7 @@ Joueurs* lancement(int* nombre_joueurs) {
 
     // Demande et attribue les noms et classes aux joueurs
     assignerNomEtClasse(joueurs, *nombre_joueurs, classes);
+    printf("beep");
     attribuerPersonnage(joueurs, *nombre_joueurs, cartes_personnage, nom_cartes_personnages);
     printf("Nous allons pouvoir commencer la distribution des cartes !\n");
     modif_valeur_defaut(joueurs, *nombre_joueurs);

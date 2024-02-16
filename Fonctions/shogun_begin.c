@@ -9,5 +9,6 @@ int shogun_commence(Joueurs *joueurs)
         {
             return compteur;
         }
+        compteur += 1;
     }
 }

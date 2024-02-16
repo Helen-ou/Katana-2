@@ -104,4 +104,8 @@ void verifierCodeBushido(Joueurs *joueurs, int joueur_actif, int nb_joueurs)
         printf("%s a le Code du bushido devant lui.\n", joueurs[joueur_actif].nom);
         actionCodeBushido(joueurs, joueur_actif, nb_joueurs); // Lancer l'action du Code du bushido
     }
+    else
+    {
+        printf("%s n'a pas le Code du bushido devant lui.\n", joueurs[joueur_actif].nom);
+    }
 }

@@ -28,14 +28,16 @@ void point_calcul(Joueurs *joueurs, int nb_joueurs)
         case 1:
             points_factions[1] += joueurs[i].honneur * multiplicateurs[nb_joueurs - 3][1];
             break;
-        case 3:
+        case 2:
             points_factions[2] += joueurs[i].honneur * multiplicateurs[nb_joueurs - 3][2];
             break;
-        case 4:
+        case 3:
             points_factions[3] += joueurs[i].honneur * multiplicateurs[nb_joueurs - 3][3];
             break;
         }
     }
+
+    
     // Afficher l'équipe victorieuse et les points
     int tableau_trie[4][2];     // {points_max, id_max}
     for (int i = 0; i < 4; i++) // Tri des cartes
@@ -54,15 +56,7 @@ void point_calcul(Joueurs *joueurs, int nb_joueurs)
         tableau_trie[i][1] = id_max;
         points_factions[id_max] = -100;
     }
-    // Affichage des résultats
+    
     printf("La faction gagnante est %s avec %d points, félicitations !\n", nom_factions[tableau_trie[0][1]], tableau_trie[0][0]);
-    printf("La deuxième faction est %s avec %d points, félicitations !\n", nom_factions[tableau_trie[1][1]], tableau_trie[1][0]);
-    if (nb_joueurs > 3)
-    {
-        printf("La troisième faction est %s avec %d points, félicitations !\n", nom_factions[tableau_trie[2][1]], tableau_trie[2][0]);
-        if (nb_joueurs > 4)
-        {
-            printf("La quatrième faction est %s avec %d points !\n", nom_factions[tableau_trie[3][1]], tableau_trie[3][0]);
-        }
-    }
+    
 }

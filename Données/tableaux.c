@@ -9,7 +9,7 @@ int classes[][4] = {
     {1, 1, 0, 2},
     {1, 1, 1, 2},
     {1, 1, 1, 3},
-    {1, 1, 1, 3}};
+    {1, 2, 1, 3}};
 
 // ID, quantité, portée, attaque, permanente
 int deck[25][5] = {

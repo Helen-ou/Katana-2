@@ -33,6 +33,8 @@ int main()
             joueur_actif++;
         }
     }
+
+    free(joueurs);
     printf("\nMerci d'avoir joué !");
     return 0;
 }
