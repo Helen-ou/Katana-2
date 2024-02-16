@@ -86,7 +86,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // K correspond au joueur 
                 printf("Vous n'avez pas de carte actions dans votre deck !\n");
             }
             printf("Vous ne pouvez plus jouer de carte action \n");
-                printf("Quelle action souhaitez vous faire ? \n");
+            printf("Quelle action souhaitez vous faire ? \n");
             scanf("%d", &option);
         }
 
@@ -206,7 +206,7 @@ void phase_3(Joueurs *joueurs, int k, int nb_joueurs) // K correspond au joueur 
                         printf("Tu peux attaquer le joueur %s numero %d.\n", joueurs[j].nom, j);
                     }
                 }
-                printf("Parmis eux, lequel voulez-vous attaquer ? (entrez le numero)\n");
+                printf("Parmi eux, lequel voulez-vous attaquer ? (entrez le numero)\n");
                 int j_visé;
                 scanf("%d", &j_visé);
                 int pers[2] = {k, j_visé};

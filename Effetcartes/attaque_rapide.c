@@ -1,4 +1,4 @@
-// Définition de la carte permanante Attaque
+/*// Définition de la carte permanante Attaque
 int attaque_rapide(Joueurs *joueurs, int j_visé)
 {
     int nb_carte_attaque = 0;
@@ -15,3 +15,4 @@ int attaque_rapide(Joueurs *joueurs, int j_visé)
     }
     return nb_carte_attaque; 
 }
+*/

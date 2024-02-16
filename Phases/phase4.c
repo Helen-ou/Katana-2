@@ -5,9 +5,9 @@ void phase_4(Joueurs *joueurs, int k) // Reitère pour chaque joueur qui joue
 {
     int index = 0;
     int verification = 1;
-    for (int i = 0; i < 15; i++)
+    for (int i = 0; i < 14; i++)
     {
-        if (joueurs[k].cartes[i] > 0)
+        if (joueurs[k].cartes[i] > 0 && joueurs[k].cartes[i] < 30) // Out of range
         {
             index += 1;
             if (index > 7)
@@ -21,7 +21,7 @@ void phase_4(Joueurs *joueurs, int k) // Reitère pour chaque joueur qui joue
     if (verification == 0)
     {
         printf("Le joueur %s possède plus de 7 cartes :\n", joueurs[k].nom);
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 14; i++)
         {
             if (joueurs[k].cartes[i] > 0)
             {
@@ -35,7 +35,7 @@ void phase_4(Joueurs *joueurs, int k) // Reitère pour chaque joueur qui joue
         {
             do
             {
-                printf("Veuillez choisir la carte que vous souhaitez défausser  : ");
+                printf("Veuillez choisir la carte que vous souhaitez défausser (0, %d)  : ", index);
                 scanf("%d", &choix);
                 for (int j = 0; j < 7; j++)
                 {

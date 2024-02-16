@@ -12,9 +12,9 @@ int routine(Joueurs *joueurs, int nombre_joueurs)
 
     int fin = 0;
     fin += check_honneur(joueurs, nombre_joueurs);
-    printf("Fin vaut %d\n", fin);
+    printf("Honneur Fin : %d", fin);
     fin += check_pv_fin(joueurs, nombre_joueurs);
-    printf("Fin vaut %d\n", fin);
+    printf("Honneur Fin PV : %d", fin);
     if (fin >= 1)
     {
         printf("La fin du jeu approche, comptons les points ! ");

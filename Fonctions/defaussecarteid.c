@@ -7,7 +7,7 @@ int defausserCarte(Joueurs *joueurs, int joueur_actif, int id)
         if (joueurs[joueur_actif].cartes[i] == id)
         {
             joueurs[joueur_actif].cartes[i] = -1; // Donne l'ID -1 aux cartes défaussées
-            printf("Le joueur %s a défaussé une carte avec l'id %d.\n", joueurs[joueur_actif].nom, id);
+            printf("Le joueur %s a défaussé la carte %s.\n", joueurs[joueur_actif].nom, deck_noms[id]);
             return 1;
         }
     }
