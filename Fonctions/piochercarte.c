@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "distribution.c"
 
 void pioche_tour1(Joueurs *joueurs, int nombre_joueurs)
